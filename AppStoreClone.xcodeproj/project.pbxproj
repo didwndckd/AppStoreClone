@@ -16,6 +16,9 @@
 		3140619929C591C50099F6F8 /* AppStoreCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3140619829C591C50099F6F8 /* AppStoreCloneTests.swift */; };
 		314061A329C591C50099F6F8 /* AppStoreCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314061A229C591C50099F6F8 /* AppStoreCloneUITests.swift */; };
 		314061A529C591C50099F6F8 /* AppStoreCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314061A429C591C50099F6F8 /* AppStoreCloneUITestsLaunchTests.swift */; };
+		314061B529C59E0F0099F6F8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314061B429C59E0F0099F6F8 /* ViewModel.swift */; };
+		314061B729C59F130099F6F8 /* ViewModelBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314061B629C59F130099F6F8 /* ViewModelBased.swift */; };
+		314061B929C5A1090099F6F8 /* StoryboardBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314061B829C5A1090099F6F8 /* StoryboardBased.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		3140619E29C591C50099F6F8 /* AppStoreCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStoreCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		314061A229C591C50099F6F8 /* AppStoreCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreCloneUITests.swift; sourceTree = "<group>"; };
 		314061A429C591C50099F6F8 /* AppStoreCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		314061B429C59E0F0099F6F8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		314061B629C59F130099F6F8 /* ViewModelBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBased.swift; sourceTree = "<group>"; };
+		314061B829C5A1090099F6F8 /* StoryboardBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardBased.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +105,9 @@
 		3140618029C591C30099F6F8 /* AppStoreClone */ = {
 			isa = PBXGroup;
 			children = (
-				3140618129C591C30099F6F8 /* AppDelegate.swift */,
-				3140618329C591C30099F6F8 /* SceneDelegate.swift */,
-				3140618529C591C30099F6F8 /* ViewController.swift */,
-				3140618729C591C30099F6F8 /* Main.storyboard */,
-				3140618A29C591C50099F6F8 /* Assets.xcassets */,
-				3140618C29C591C50099F6F8 /* LaunchScreen.storyboard */,
 				3140618F29C591C50099F6F8 /* Info.plist */,
+				314061B129C59C3D0099F6F8 /* App */,
+				314061B329C59DF30099F6F8 /* BaseProtocol */,
 			);
 			path = AppStoreClone;
 			sourceTree = "<group>";
@@ -125,6 +127,29 @@
 				314061A429C591C50099F6F8 /* AppStoreCloneUITestsLaunchTests.swift */,
 			);
 			path = AppStoreCloneUITests;
+			sourceTree = "<group>";
+		};
+		314061B129C59C3D0099F6F8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3140618129C591C30099F6F8 /* AppDelegate.swift */,
+				3140618329C591C30099F6F8 /* SceneDelegate.swift */,
+				3140618529C591C30099F6F8 /* ViewController.swift */,
+				3140618729C591C30099F6F8 /* Main.storyboard */,
+				3140618A29C591C50099F6F8 /* Assets.xcassets */,
+				3140618C29C591C50099F6F8 /* LaunchScreen.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		314061B329C59DF30099F6F8 /* BaseProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				314061B429C59E0F0099F6F8 /* ViewModel.swift */,
+				314061B629C59F130099F6F8 /* ViewModelBased.swift */,
+				314061B829C5A1090099F6F8 /* StoryboardBased.swift */,
+			);
+			path = BaseProtocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +283,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				314061B729C59F130099F6F8 /* ViewModelBased.swift in Sources */,
 				3140618629C591C30099F6F8 /* ViewController.swift in Sources */,
 				3140618229C591C30099F6F8 /* AppDelegate.swift in Sources */,
+				314061B529C59E0F0099F6F8 /* ViewModel.swift in Sources */,
+				314061B929C5A1090099F6F8 /* StoryboardBased.swift in Sources */,
 				3140618429C591C30099F6F8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +465,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KV6282V296;
+				DEVELOPMENT_TEAM = 3S767N4AG9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppStoreClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -450,7 +478,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.didwndckd.AppStoreClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -466,7 +494,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KV6282V296;
+				DEVELOPMENT_TEAM = 3S767N4AG9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppStoreClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -479,7 +507,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.didwndckd.AppStoreClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
