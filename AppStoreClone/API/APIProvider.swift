@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import Moya
 
-final class APIProvider<T: TargetType>: MoyaProvider<T> {
+final class APIProvider<T: APITargetType>: MoyaProvider<T> {
     init(plugins: [PluginType] = []) {
         super.init(plugins: plugins)
     }
