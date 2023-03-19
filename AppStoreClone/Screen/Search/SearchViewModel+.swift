@@ -13,9 +13,12 @@ extension SearchViewModel {
     struct Input {
         let searchKeyword: Signal<String>
         let search: Signal<Void>
+        let selectedLatestSearchKeyword: Signal<Int>
     }
     
     struct Output {
         let reload: Driver<Void>
+        let searchKeyword: Driver<String>
+        let isSearchMode: Driver<Bool>
     }
 }

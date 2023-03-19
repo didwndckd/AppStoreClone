@@ -17,7 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rcw-g4-OND">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="C9r-mM-CFL">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rcw-g4-OND">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -27,10 +31,18 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="rcw-g4-OND" secondAttribute="bottom" id="7h7-aN-qph"/>
                             <constraint firstItem="rcw-g4-OND" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Jdw-3I-Rda"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="C9r-mM-CFL" secondAttribute="bottom" id="b0p-gk-sQN"/>
                             <constraint firstItem="rcw-g4-OND" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="b98-Ub-2zf"/>
+                            <constraint firstItem="C9r-mM-CFL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bwN-D3-bql"/>
+                            <constraint firstItem="C9r-mM-CFL" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="grP-kh-HBx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rcw-g4-OND" secondAttribute="trailing" id="rUy-dL-mRP"/>
+                            <constraint firstItem="C9r-mM-CFL" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="znv-iI-QNO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="recommendKeywordTabelView" destination="rcw-g4-OND" id="iPE-ed-IFt"/>
+                        <outlet property="searchResultTabelView" destination="C9r-mM-CFL" id="bRD-0u-Thc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

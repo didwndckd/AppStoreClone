@@ -11,10 +11,11 @@ import Moya
 
 enum APIService {
     static func request<T: APITargetType, P: Decodable>(_ target: T,
+                                                        pluginds: [PluginType] = [],
                                                         callbackQueue: DispatchQueue = .main,
                                                         progress: ((Double) -> Void)? = nil,
                                                         parsingType: P.Type) -> Single<P> {
-        return APIProvider<T>().request(target: target, callbackQueue: callbackQueue, progress: { progress?($0.progress) })
+        return APIProvider<T>(plugins: pluginds).request(target: target, callbackQueue: callbackQueue, progress: { progress?($0.progress) })
             .flatMap { response -> Single<P> in
                 do {
                     let result = try JSONDecoder().decode(P.self, from: response.data)

@@ -13,6 +13,10 @@ import RxCocoa
 final class SearchResultViewController: BaseViewController, StoryboardBased, ViewModelBased {
     private let disposeBag = DisposeBag()
     var viewModel: SearchResultViewModel!
+    private let selectedRecommendKeyword = PublishRelay<Int>()
+    
+    @IBOutlet private weak var recommendKeywordTabelView: UITableView!
+    @IBOutlet private weak var searchResultTabelView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +25,40 @@ final class SearchResultViewController: BaseViewController, StoryboardBased, Vie
     }
     
     private func setupUI() {
-        
+        self.recommendKeywordTabelView.register(RecommendSearchKeywordCell.self)
+        self.recommendKeywordTabelView.dataSource = self
+        self.recommendKeywordTabelView.delegate = self
     }
-    
 }
 
 extension SearchResultViewController {
     private func bindUI() {
+        let input = ViewModelType.Input(selectedRecommendKeyword: self.selectedRecommendKeyword.asSignal())
+        let output = self.viewModel.transform(input: input)
         
+        output.reloadRecommendKeywordList
+            .drive(onNext: { [weak self] in
+                self?.recommendKeywordTabelView.reloadData()
+            })
+            .disposed(by: self.disposeBag)
     }
 }
 
+extension SearchResultViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.numberOfRecommendKeywordList
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(RecommendSearchKeywordCell.self, for: indexPath)
+        let keyword = self.viewModel.recommendKeyword(index: indexPath.row)
+        cell.configure(keyword: keyword)
+        return cell
+    }
+}
+
+extension SearchResultViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedRecommendKeyword.accept(indexPath.row)
+    }
+}

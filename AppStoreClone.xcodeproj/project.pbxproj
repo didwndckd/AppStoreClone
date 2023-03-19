@@ -19,6 +19,12 @@
 		314061B529C59E0F0099F6F8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314061B429C59E0F0099F6F8 /* ViewModel.swift */; };
 		314061B729C59F130099F6F8 /* ViewModelBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314061B629C59F130099F6F8 /* ViewModelBased.swift */; };
 		314061B929C5A1090099F6F8 /* StoryboardBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314061B829C5A1090099F6F8 /* StoryboardBased.swift */; };
+		315E1EF829C6D94900C51259 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 315E1EF729C6D94900C51259 /* Realm */; };
+		315E1EFA29C6D94900C51259 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 315E1EF929C6D94900C51259 /* RealmSwift */; };
+		315E1F0229C6DC3B00C51259 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315E1F0129C6DC3B00C51259 /* Constants.swift */; };
+		315E1F0429C6DC5300C51259 /* Constants.Realm+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315E1F0329C6DC5300C51259 /* Constants.Realm+.swift */; };
+		315E1F0929C6E19300C51259 /* LatestSearchKeywordStoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315E1F0729C6E19300C51259 /* LatestSearchKeywordStoreItem.swift */; };
+		315E1F0A29C6E19300C51259 /* LatestSearchKeywordStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315E1F0829C6E19300C51259 /* LatestSearchKeywordStorage.swift */; };
 		315FDA3829C5D99B0049B3A7 /* SearchResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315FDA3529C5D99B0049B3A7 /* SearchResultViewController.storyboard */; };
 		315FDA3929C5D99B0049B3A7 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315FDA3629C5D99B0049B3A7 /* SearchResultViewController.swift */; };
 		315FDA3A29C5D99B0049B3A7 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315FDA3729C5D99B0049B3A7 /* SearchResultViewModel.swift */; };
@@ -46,6 +52,16 @@
 		3194F13029C5C9AA0055AA7D /* WindowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3194F12F29C5C9AA0055AA7D /* WindowService.swift */; };
 		3194F13229C5CC350055AA7D /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3194F13129C5CC350055AA7D /* SearchViewController.storyboard */; };
 		3194F13529C5CCE70055AA7D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3194F13429C5CCE60055AA7D /* MainTabBarViewController.swift */; };
+		31D4C6AA29C6EA62009E9207 /* SearchResultViewModel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4C6A929C6EA62009E9207 /* SearchResultViewModel+.swift */; };
+		31D4C6AD29C6ED21009E9207 /* RecommendSearchKeywordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4C6AB29C6ED21009E9207 /* RecommendSearchKeywordCell.swift */; };
+		31D4C6AE29C6ED21009E9207 /* RecommendSearchKeywordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D4C6AC29C6ED21009E9207 /* RecommendSearchKeywordCell.xib */; };
+		31D4C6B029C6FAD3009E9207 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4C6AF29C6FAD3009E9207 /* Array+.swift */; };
+		31D4C6B229C715E7009E9207 /* APITarget.Itunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4C6B129C715E7009E9207 /* APITarget.Itunes.swift */; };
+		31D4C6B429C71641009E9207 /* Constants.Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4C6B329C71641009E9207 /* Constants.Domain.swift */; };
+		31D4C6B629C734BA009E9207 /* AppInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4C6B529C734BA009E9207 /* AppInfoItem.swift */; };
+		31D4C6B929C73554009E9207 /* ItunesSearchResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4C6B829C73554009E9207 /* ItunesSearchResponseModel.swift */; };
+		31D4C6BB29C73DF0009E9207 /* APILogPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4C6BA29C73DF0009E9207 /* APILogPlugin.swift */; };
+		31D4C6BD29C73FD9009E9207 /* ItunesMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4C6BC29C73FD8009E9207 /* ItunesMediaType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +98,10 @@
 		314061B429C59E0F0099F6F8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		314061B629C59F130099F6F8 /* ViewModelBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBased.swift; sourceTree = "<group>"; };
 		314061B829C5A1090099F6F8 /* StoryboardBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardBased.swift; sourceTree = "<group>"; };
+		315E1F0129C6DC3B00C51259 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		315E1F0329C6DC5300C51259 /* Constants.Realm+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants.Realm+.swift"; sourceTree = "<group>"; };
+		315E1F0729C6E19300C51259 /* LatestSearchKeywordStoreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestSearchKeywordStoreItem.swift; sourceTree = "<group>"; };
+		315E1F0829C6E19300C51259 /* LatestSearchKeywordStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestSearchKeywordStorage.swift; sourceTree = "<group>"; };
 		315FDA3529C5D99B0049B3A7 /* SearchResultViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultViewController.storyboard; sourceTree = "<group>"; };
 		315FDA3629C5D99B0049B3A7 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		315FDA3729C5D99B0049B3A7 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
@@ -103,6 +123,16 @@
 		3194F12F29C5C9AA0055AA7D /* WindowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowService.swift; sourceTree = "<group>"; };
 		3194F13129C5CC350055AA7D /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		3194F13429C5CCE60055AA7D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		31D4C6A929C6EA62009E9207 /* SearchResultViewModel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResultViewModel+.swift"; sourceTree = "<group>"; };
+		31D4C6AB29C6ED21009E9207 /* RecommendSearchKeywordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendSearchKeywordCell.swift; sourceTree = "<group>"; };
+		31D4C6AC29C6ED21009E9207 /* RecommendSearchKeywordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendSearchKeywordCell.xib; sourceTree = "<group>"; };
+		31D4C6AF29C6FAD3009E9207 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		31D4C6B129C715E7009E9207 /* APITarget.Itunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITarget.Itunes.swift; sourceTree = "<group>"; };
+		31D4C6B329C71641009E9207 /* Constants.Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.Domain.swift; sourceTree = "<group>"; };
+		31D4C6B529C734BA009E9207 /* AppInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoItem.swift; sourceTree = "<group>"; };
+		31D4C6B829C73554009E9207 /* ItunesSearchResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesSearchResponseModel.swift; sourceTree = "<group>"; };
+		31D4C6BA29C73DF0009E9207 /* APILogPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILogPlugin.swift; sourceTree = "<group>"; };
+		31D4C6BC29C73FD8009E9207 /* ItunesMediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesMediaType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +140,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				315E1EFA29C6D94900C51259 /* RealmSwift in Frameworks */,
+				315E1EF829C6D94900C51259 /* Realm in Frameworks */,
 				3194F11829C5ACA30055AA7D /* RxMoya in Frameworks */,
 				3194F11029C5ABDE0055AA7D /* RxSwift in Frameworks */,
 				3194F10E29C5ABDE0055AA7D /* RxRelay in Frameworks */,
@@ -162,12 +194,15 @@
 				3140618F29C591C50099F6F8 /* Info.plist */,
 				314061B129C59C3D0099F6F8 /* App */,
 				314061B329C59DF30099F6F8 /* Base */,
+				315E1F0029C6DC2600C51259 /* Constants */,
+				315E1F0529C6E0D300C51259 /* Storage */,
 				3194F12E29C5C9960055AA7D /* Service */,
 				3194F12129C5BCEC0055AA7D /* Extension */,
 				3194F10129C5AA050055AA7D /* API */,
-				315FDA3B29C5DD970049B3A7 /* Model */,
-				315FDA3C29C5DDA10049B3A7 /* Protocol */,
 				3194F12429C5C6020055AA7D /* Screen */,
+				315FDA3B29C5DD970049B3A7 /* Model */,
+				31D4C6B729C7351D009E9207 /* ResponseModel */,
+				315FDA3C29C5DDA10049B3A7 /* Protocol */,
 			);
 			path = AppStoreClone;
 			sourceTree = "<group>";
@@ -213,12 +248,42 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		315E1F0029C6DC2600C51259 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				315E1F0129C6DC3B00C51259 /* Constants.swift */,
+				315E1F0329C6DC5300C51259 /* Constants.Realm+.swift */,
+				31D4C6B329C71641009E9207 /* Constants.Domain.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		315E1F0529C6E0D300C51259 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				315E1F0629C6E17100C51259 /* LatestSearchKeywordStorage */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		315E1F0629C6E17100C51259 /* LatestSearchKeywordStorage */ = {
+			isa = PBXGroup;
+			children = (
+				315E1F0829C6E19300C51259 /* LatestSearchKeywordStorage.swift */,
+				315E1F0729C6E19300C51259 /* LatestSearchKeywordStoreItem.swift */,
+			);
+			path = LatestSearchKeywordStorage;
+			sourceTree = "<group>";
+		};
 		315FDA3429C5D8FA0049B3A7 /* SearchResult */ = {
 			isa = PBXGroup;
 			children = (
 				315FDA3729C5D99B0049B3A7 /* SearchResultViewModel.swift */,
+				31D4C6A929C6EA62009E9207 /* SearchResultViewModel+.swift */,
 				315FDA3629C5D99B0049B3A7 /* SearchResultViewController.swift */,
 				315FDA3529C5D99B0049B3A7 /* SearchResultViewController.storyboard */,
+				31D4C6AB29C6ED21009E9207 /* RecommendSearchKeywordCell.swift */,
+				31D4C6AC29C6ED21009E9207 /* RecommendSearchKeywordCell.xib */,
 			);
 			path = SearchResult;
 			sourceTree = "<group>";
@@ -226,6 +291,8 @@
 		315FDA3B29C5DD970049B3A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				31D4C6B529C734BA009E9207 /* AppInfoItem.swift */,
+				31D4C6BC29C73FD8009E9207 /* ItunesMediaType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,6 +313,7 @@
 				3194F11B29C5AE0E0055AA7D /* APIProvider.swift */,
 				3194F11D29C5B9290055AA7D /* APIService.swift */,
 				3194F11F29C5B9AA0055AA7D /* APIError.swift */,
+				31D4C6BA29C73DF0009E9207 /* APILogPlugin.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -255,6 +323,7 @@
 			children = (
 				3194F11929C5AD8C0055AA7D /* APITargetType.swift */,
 				3194F11229C5AC110055AA7D /* APITarget.swift */,
+				31D4C6B129C715E7009E9207 /* APITarget.Itunes.swift */,
 			);
 			path = Target;
 			sourceTree = "<group>";
@@ -264,6 +333,7 @@
 			children = (
 				3194F12229C5BCF70055AA7D /* Error+.swift */,
 				315FDA4429C5E0250049B3A7 /* UITableView+.swift */,
+				31D4C6AF29C6FAD3009E9207 /* Array+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -307,6 +377,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		31D4C6B729C7351D009E9207 /* ResponseModel */ = {
+			isa = PBXGroup;
+			children = (
+				31D4C6B829C73554009E9207 /* ItunesSearchResponseModel.swift */,
+			);
+			path = ResponseModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -330,6 +408,8 @@
 				3194F11529C5ACA30055AA7D /* Moya */,
 				3194F11729C5ACA30055AA7D /* RxMoya */,
 				315FDA4029C5DE540049B3A7 /* SnapKit */,
+				315E1EF729C6D94900C51259 /* Realm */,
+				315E1EF929C6D94900C51259 /* RealmSwift */,
 			);
 			productName = AppStoreClone;
 			productReference = 3140617E29C591C30099F6F8 /* AppStoreClone.app */;
@@ -407,6 +487,7 @@
 				3194F10A29C5ABDE0055AA7D /* XCRemoteSwiftPackageReference "RxSwift" */,
 				3194F11429C5ACA30055AA7D /* XCRemoteSwiftPackageReference "Moya" */,
 				315FDA3F29C5DE540049B3A7 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				315E1EF629C6D94900C51259 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 3140617F29C591C30099F6F8 /* Products */;
 			projectDirPath = "";
@@ -428,6 +509,7 @@
 				3140618E29C591C50099F6F8 /* LaunchScreen.storyboard in Resources */,
 				3140618B29C591C50099F6F8 /* Assets.xcassets in Resources */,
 				3140618929C591C30099F6F8 /* Main.storyboard in Resources */,
+				31D4C6AE29C6ED21009E9207 /* RecommendSearchKeywordCell.xib in Resources */,
 				315FDA4929C5E0F10049B3A7 /* LatestSearchKeywordCell.xib in Resources */,
 				3194F13229C5CC350055AA7D /* SearchViewController.storyboard in Resources */,
 			);
@@ -457,27 +539,40 @@
 				3194F12B29C5C6CE0055AA7D /* SearchViewController.swift in Sources */,
 				314061B729C59F130099F6F8 /* ViewModelBased.swift in Sources */,
 				3194F11A29C5AD8C0055AA7D /* APITargetType.swift in Sources */,
+				31D4C6B029C6FAD3009E9207 /* Array+.swift in Sources */,
 				315FDA3A29C5D99B0049B3A7 /* SearchResultViewModel.swift in Sources */,
+				31D4C6AD29C6ED21009E9207 /* RecommendSearchKeywordCell.swift in Sources */,
 				3194F13529C5CCE70055AA7D /* MainTabBarViewController.swift in Sources */,
 				3140618629C591C30099F6F8 /* ViewController.swift in Sources */,
 				3140618229C591C30099F6F8 /* AppDelegate.swift in Sources */,
+				31D4C6B429C71641009E9207 /* Constants.Domain.swift in Sources */,
+				31D4C6AA29C6EA62009E9207 /* SearchResultViewModel+.swift in Sources */,
 				3194F12329C5BCF70055AA7D /* Error+.swift in Sources */,
+				31D4C6BB29C73DF0009E9207 /* APILogPlugin.swift in Sources */,
 				315FDA4829C5E0F10049B3A7 /* LatestSearchKeywordCell.swift in Sources */,
 				3194F12729C5C6500055AA7D /* SearchViewModel.swift in Sources */,
+				315E1F0929C6E19300C51259 /* LatestSearchKeywordStoreItem.swift in Sources */,
+				315E1F0229C6DC3B00C51259 /* Constants.swift in Sources */,
 				315FDA3E29C5DDB50049B3A7 /* NibLoadableView.swift in Sources */,
 				314061B529C59E0F0099F6F8 /* ViewModel.swift in Sources */,
+				315E1F0A29C6E19300C51259 /* LatestSearchKeywordStorage.swift in Sources */,
 				3194F13029C5C9AA0055AA7D /* WindowService.swift in Sources */,
 				314061B929C5A1090099F6F8 /* StoryboardBased.swift in Sources */,
 				3194F11E29C5B9290055AA7D /* APIService.swift in Sources */,
 				3140618429C591C30099F6F8 /* SceneDelegate.swift in Sources */,
 				315FDA4329C5DEF10049B3A7 /* ReusableView.swift in Sources */,
 				3194F12929C5C66F0055AA7D /* SearchViewModel+.swift in Sources */,
+				31D4C6B929C73554009E9207 /* ItunesSearchResponseModel.swift in Sources */,
+				31D4C6B229C715E7009E9207 /* APITarget.Itunes.swift in Sources */,
 				3194F11329C5AC110055AA7D /* APITarget.swift in Sources */,
+				315E1F0429C6DC5300C51259 /* Constants.Realm+.swift in Sources */,
 				3194F12D29C5C6EE0055AA7D /* BaseViewController.swift in Sources */,
 				3194F11C29C5AE0E0055AA7D /* APIProvider.swift in Sources */,
+				31D4C6B629C734BA009E9207 /* AppInfoItem.swift in Sources */,
 				315FDA3929C5D99B0049B3A7 /* SearchResultViewController.swift in Sources */,
 				3194F12029C5B9AA0055AA7D /* APIError.swift in Sources */,
 				315FDA4529C5E0250049B3A7 /* UITableView+.swift in Sources */,
+				31D4C6BD29C73FD9009E9207 /* ItunesMediaType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +918,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		315E1EF629C6D94900C51259 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		315FDA3F29C5DE540049B3A7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -850,6 +953,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		315E1EF729C6D94900C51259 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 315E1EF629C6D94900C51259 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		315E1EF929C6D94900C51259 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 315E1EF629C6D94900C51259 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		315FDA4029C5DE540049B3A7 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 315FDA3F29C5DE540049B3A7 /* XCRemoteSwiftPackageReference "SnapKit" */;

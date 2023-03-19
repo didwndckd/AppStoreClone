@@ -10,7 +10,7 @@ import RxSwift
 import Moya
 
 final class APIProvider<T: APITargetType>: MoyaProvider<T> {
-    init(plugins: [PluginType] = []) {
+    init(plugins: [PluginType]) {
         super.init(plugins: plugins)
     }
     
