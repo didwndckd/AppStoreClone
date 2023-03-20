@@ -20,5 +20,12 @@ extension SearchResultViewModel {
     
     struct Output {
         let reloadRecommendKeywordList: Driver<Void>
+        let reloadSoftwareItems: Driver<Void>
+        let mode: Driver<Mode>
+    }
+    
+    enum Mode {
+        case recommendKeyword
+        case software
     }
 }

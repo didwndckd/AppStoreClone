@@ -62,7 +62,7 @@ extension SearchViewModel {
     }
     
     func latestKeyword(index: Int) -> String {
-        return self.latestKeywordList.value[index]
+        return self.latestKeywordList.value.safety(index: index) ?? ""
     }
     
     var searchResultViewModel: SearchResultViewModel {

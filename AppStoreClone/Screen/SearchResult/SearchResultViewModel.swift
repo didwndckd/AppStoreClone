@@ -13,7 +13,10 @@ final class SearchResultViewModel: ViewModel {
     private let disposeBag = DisposeBag()
     private let searchKeyword: BehaviorRelay<String>
     private let search: PublishRelay<Void>
+    private let loading = LoadingTracker()
     private let recommendKeywordList = BehaviorRelay<[String]>(value: [])
+    private let softwareItems = BehaviorRelay<[SoftwareItem]>(value: [])
+    private let mode = BehaviorRelay(value: Mode.recommendKeyword)
     
     init(parameter: Parameter) {
         self.searchKeyword = parameter.searchKeyword
@@ -23,9 +26,24 @@ final class SearchResultViewModel: ViewModel {
 }
 
 extension SearchResultViewModel {
+    private func convertResponseItemToSoftwareItem(_ item: ItunesSearchSoftwareResponseModel.Item) -> SoftwareItem {
+        return SoftwareItem(name: item.trackCensoredName,
+                            developerName: item.artistName,
+                            screenshotUrls: item.screenshotUrls,
+                            iconUrl60: item.artworkUrl60,
+                            iconUrl100: item.artworkUrl100,
+                            iconUrl512: item.artworkUrl512,
+                            categorys: item.genres,
+                            description: item.description,
+                            releaseNotes: item.releaseNotes,
+                            userRatingCount: item.userRatingCount,
+                            averageUserRating: item.averageUserRating)
+    }
+}
+
+extension SearchResultViewModel {
     private func bind() {
-        self.searchKeyword
-            .withLatestFrom(LatestSearchKeywordStorage.shared.keywordListObservable) { ($0, $1) }
+        Observable.combineLatest(self.searchKeyword, LatestSearchKeywordStorage.shared.keywordListObservable)
             .map { keyword, list in
                 return list.filter { $0.contains(keyword) }
             }
@@ -36,8 +54,19 @@ extension SearchResultViewModel {
             .withLatestFrom(self.searchKeyword)
             .bind(onNext: { keyword in
                 LatestSearchKeywordStorage.shared.storeKeyword(keyword)
-                self.searchApps()
+                self.softwareItems.accept([])
+                self.searchApps(offset: 0, limit: 20)
             })
+            .disposed(by: self.disposeBag)
+        
+        self.searchKeyword
+            .map { _ in Mode.recommendKeyword }
+            .bind(to: self.mode)
+            .disposed(by: self.disposeBag)
+        
+        self.search
+            .map { Mode.software }
+            .bind(to: self.mode)
             .disposed(by: self.disposeBag)
     }
     
@@ -54,22 +83,34 @@ extension SearchResultViewModel {
             })
             .disposed(by: self.disposeBag)
         
-        return Output(reloadRecommendKeywordList: self.recommendKeywordList.asDriver().map { _ in () })
+        return Output(reloadRecommendKeywordList: self.recommendKeywordList.asDriver().map { _ in () },
+                      reloadSoftwareItems: self.softwareItems.asDriver().map { _ in () },
+                      mode: self.mode.asDriver())
     }
 }
 
+// MARK: API
 extension SearchResultViewModel {
-    private func searchApps() {
+    private func searchApps(offset: Int, limit: Int) {
         let country = (Locale.current as NSLocale).countryCode ?? ""
         let lang = Locale.preferredLanguages.first ?? ""
         let term = self.searchKeyword.value.replacingOccurrences(of: " ", with: "+")
         
-        let target = APITarget.Itunes.search(country: country, media: ItunesMediaType.software.rawValue, lang: lang, term: term, offset: 0, limit: 20)
-        APIService.request(target, pluginds: [APILogPlugin()], parsingType: ItunesSearchResponseModel.self)
-            .asObservable()
-            .bind(onNext: { [weak self] response in
-                response.results.forEach { print("\($0.trackCensoredName): 다운로드\($0.userRatingCount), 별점: \($0.averageUserRating)") }
-            })
+        let target = APITarget.Itunes.search(country: country, media: ItunesMediaType.software.rawValue, lang: lang, term: term, offset: offset, limit: limit)
+        APIService.request(target, parsingType: ItunesSearchSoftwareResponseModel.self)
+            .trackLoading(self.loading)
+            .subscribe(
+                onNext: { [weak self] response in
+                    let newItems = response.results.compactMap { item in
+                        return self?.convertResponseItemToSoftwareItem(item)
+                    }
+                    
+                    let oldItems = self?.softwareItems.value ?? []
+                    self?.softwareItems.accept(oldItems + newItems)
+                },
+                onError: { error in
+                    print(error.localizedDescription)
+                })
             .disposed(by: self.disposeBag)
     }
 }
@@ -80,6 +121,14 @@ extension SearchResultViewModel {
     }
     
     func recommendKeyword(index: Int) -> String {
-        return self.recommendKeywordList.value[index]
+        return self.recommendKeywordList.value.safety(index: index) ?? ""
+    }
+    
+    var numberOfSoftwareItems: Int {
+        return self.softwareItems.value.count
+    }
+    
+    func softwareItem(index: Int) -> SoftwareItem {
+        return self.softwareItems.value.safety(index: index) ?? .empty
     }
 }
