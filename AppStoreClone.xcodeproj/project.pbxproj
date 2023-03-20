@@ -42,6 +42,8 @@
 		316A44BF29C8B185005ADAF2 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44BE29C8B185005ADAF2 /* Loadable.swift */; };
 		316A44C129C8B195005ADAF2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44C029C8B195005ADAF2 /* LoadingView.swift */; };
 		316A44C329C8B1AC005ADAF2 /* DefaultLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44C229C8B1AC005ADAF2 /* DefaultLoadingView.swift */; };
+		316A44C529C8C58E005ADAF2 /* LatestSearchKeywordHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44C429C8C58E005ADAF2 /* LatestSearchKeywordHeaderView.swift */; };
+		316A44C729C8C5B4005ADAF2 /* LatestSearchKeywordHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316A44C629C8C5B4005ADAF2 /* LatestSearchKeywordHeaderView.xib */; };
 		3194F10C29C5ABDE0055AA7D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 3194F10B29C5ABDE0055AA7D /* RxCocoa */; };
 		3194F10E29C5ABDE0055AA7D /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 3194F10D29C5ABDE0055AA7D /* RxRelay */; };
 		3194F11029C5ABDE0055AA7D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3194F10F29C5ABDE0055AA7D /* RxSwift */; };
@@ -128,6 +130,8 @@
 		316A44BE29C8B185005ADAF2 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		316A44C029C8B195005ADAF2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		316A44C229C8B1AC005ADAF2 /* DefaultLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoadingView.swift; sourceTree = "<group>"; };
+		316A44C429C8C58E005ADAF2 /* LatestSearchKeywordHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestSearchKeywordHeaderView.swift; sourceTree = "<group>"; };
+		316A44C629C8C5B4005ADAF2 /* LatestSearchKeywordHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatestSearchKeywordHeaderView.xib; sourceTree = "<group>"; };
 		3194F11229C5AC110055AA7D /* APITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITarget.swift; sourceTree = "<group>"; };
 		3194F11929C5AD8C0055AA7D /* APITargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITargetType.swift; sourceTree = "<group>"; };
 		3194F11B29C5AE0E0055AA7D /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
@@ -404,6 +408,8 @@
 				3194F13129C5CC350055AA7D /* SearchViewController.storyboard */,
 				315FDA4629C5E0F10049B3A7 /* LatestSearchKeywordCell.swift */,
 				315FDA4729C5E0F10049B3A7 /* LatestSearchKeywordCell.xib */,
+				316A44C429C8C58E005ADAF2 /* LatestSearchKeywordHeaderView.swift */,
+				316A44C629C8C5B4005ADAF2 /* LatestSearchKeywordHeaderView.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -568,6 +574,7 @@
 				3140618B29C591C50099F6F8 /* Assets.xcassets in Resources */,
 				3140618929C591C30099F6F8 /* Main.storyboard in Resources */,
 				31D4C6C629C81DD7009E9207 /* SoftwareCell.xib in Resources */,
+				316A44C729C8C5B4005ADAF2 /* LatestSearchKeywordHeaderView.xib in Resources */,
 				31D4C6AE29C6ED21009E9207 /* RecommendSearchKeywordCell.xib in Resources */,
 				315FDA4929C5E0F10049B3A7 /* LatestSearchKeywordCell.xib in Resources */,
 				3194F13229C5CC350055AA7D /* SearchViewController.storyboard in Resources */,
@@ -619,6 +626,7 @@
 				315E1F0229C6DC3B00C51259 /* Constants.swift in Sources */,
 				315FDA3E29C5DDB50049B3A7 /* NibLoadableView.swift in Sources */,
 				314061B529C59E0F0099F6F8 /* ViewModel.swift in Sources */,
+				316A44C529C8C58E005ADAF2 /* LatestSearchKeywordHeaderView.swift in Sources */,
 				315E1F0A29C6E19300C51259 /* LatestSearchKeywordStorage.swift in Sources */,
 				3194F13029C5C9AA0055AA7D /* WindowService.swift in Sources */,
 				316A44BA29C87F9F005ADAF2 /* AverageUserRatingView.swift in Sources */,

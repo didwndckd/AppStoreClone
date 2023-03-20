@@ -136,6 +136,7 @@ extension SearchResultViewModel {
         LatestSearchKeywordStorage.shared.storeKeyword(keyword)
         
         self.softwareItemsRequest(keyword: keyword, offset: 0)
+            .delay(.milliseconds(100), scheduler: MainScheduler.instance)
             .trackLoading(self.searchLoading)
             .subscribe(
                 onNext: { [weak self] items in

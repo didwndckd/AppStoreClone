@@ -44,8 +44,10 @@ final class SearchViewController: BaseViewController, ViewModelBased, Storyboard
     
     private func setupUI() {
         self.tableView.register(LatestSearchKeywordCell.self)
+        self.tableView.register(LatestSearchKeywordHeaderView.self)
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.sectionHeaderHeight = 58
     }
 }
 
@@ -84,6 +86,11 @@ extension SearchViewController: UITableViewDataSource {
         let keyword = self.viewModel.latestKeyword(index: indexPath.row)
         cell.configure(keyword: keyword)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(LatestSearchKeywordHeaderView.self)
+        return view
     }
 }
 
