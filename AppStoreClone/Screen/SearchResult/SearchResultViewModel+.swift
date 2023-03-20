@@ -16,9 +16,12 @@ extension SearchResultViewModel {
     }
     struct Input {
         let selectedRecommendKeyword: Signal<Int>
+        let nextPage: Signal<Void>
     }
     
     struct Output {
+        let searchLoading: Driver<Bool>
+        let nextPageLoading: Driver<Bool>
         let reloadRecommendKeywordList: Driver<Void>
         let reloadSoftwareItems: Driver<Void>
         let mode: Driver<Mode>

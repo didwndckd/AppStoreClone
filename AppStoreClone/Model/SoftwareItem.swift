@@ -35,4 +35,13 @@ extension SoftwareItem {
                             userRatingCount: 0,
                             averageUserRating: 0)
     }
+    
+    var screenShotImageHeightMultiPlier: Double {
+        guard let url = URL(string: self.screenshotUrls.first ?? "") else { return 0 }
+        let lastPath = url.lastPathComponent
+        let filtered = lastPath.filter { $0.isNumber || $0 == "x" }
+        let numbers = filtered.split(separator: "x").compactMap { Double($0) }
+        guard numbers.count == 2 else { return 0 }
+        return numbers[1] / numbers[0]
+    }
 }

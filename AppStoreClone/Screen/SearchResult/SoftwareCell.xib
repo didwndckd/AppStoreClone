@@ -89,7 +89,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w9h-Zb-iS8">
                                         <rect key="frame" x="0.0" y="0.0" width="103.33333333333333" height="183.33333333333334"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="w9h-Zb-iS8" secondAttribute="height" multiplier="392:696" id="OMt-yy-fqD"/>
+                                            <constraint firstAttribute="width" secondItem="w9h-Zb-iS8" secondAttribute="height" multiplier="392:696" priority="250" id="OMt-yy-fqD"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="25h-Pf-e7y">
@@ -120,9 +120,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Pxg-DN-lSi" secondAttribute="trailing" constant="16" id="Pib-md-dF3"/>
-                    <constraint firstItem="Pxg-DN-lSi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="XnF-M0-JhO"/>
+                    <constraint firstItem="Pxg-DN-lSi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="999" constant="20" id="XnF-M0-JhO"/>
                     <constraint firstItem="Pxg-DN-lSi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="YVm-81-21A"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Pxg-DN-lSi" secondAttribute="bottom" constant="20" id="qQD-RQ-Zww"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Pxg-DN-lSi" secondAttribute="bottom" priority="999" constant="20" id="qQD-RQ-Zww"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

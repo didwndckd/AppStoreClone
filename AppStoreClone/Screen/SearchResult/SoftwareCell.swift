@@ -51,6 +51,13 @@ final class SoftwareCell: UITableViewCell, ReusableView, NibLoadableView {
         self.screenshotImageView1.setImage(item.screenshotUrls.safety(index: 0) ?? "")
         self.screenshotImageView2.setImage(item.screenshotUrls.safety(index: 1) ?? "")
         self.screenshotImageView3.setImage(item.screenshotUrls.safety(index: 2) ?? "")
+        
+        let multiplier = item.screenShotImageHeightMultiPlier
+        [self.screenshotImageView2, self.screenshotImageView3].forEach { $0?.isHidden = multiplier < 1 }
+        
+        self.screenshotImageView1.snp.remakeConstraints { remake in
+            remake.height.equalTo(self.screenshotImageView1.snp.width).multipliedBy(multiplier)
+        }
     }
     
 }
