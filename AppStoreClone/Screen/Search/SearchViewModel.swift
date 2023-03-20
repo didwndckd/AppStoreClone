@@ -14,6 +14,7 @@ final class SearchViewModel: ViewModel {
     private let searchKeyword = BehaviorRelay(value: "")
     private let search = PublishRelay<Void>()
     private let latestKeywordList = BehaviorRelay<[String]>(value: [])
+    private let moveTo = PublishRelay<MoveTo?>()
     
     init() {
         self.bind()
@@ -52,7 +53,8 @@ extension SearchViewModel {
         
         return Output(reload: self.latestKeywordList.asDriver().map { _ in () },
                       searchKeyword: self.searchKeyword.asDriver(),
-                      isSearchMode: self.searchKeyword.asDriver().map { !$0.isEmpty })
+                      isSearchMode: self.searchKeyword.asDriver().map { !$0.isEmpty },
+                      moveTo: self.moveTo.asDriver(onErrorJustReturn: nil).compactMap { $0 })
     }
 }
 
@@ -66,8 +68,19 @@ extension SearchViewModel {
     }
     
     var searchResultViewModel: SearchResultViewModel {
-        let parameter = SearchResultViewModel.Parameter(searchKeyword: self.searchKeyword,
-                                                        search: self.search)
-        return SearchResultViewModel(parameter: parameter)
+        let parameter = SearchResultViewModel.Parameter(searchKeyword: self.searchKeyword.asObservable(),
+                                                        search: self.search.asObservable())
+        
+        let viewModel = SearchResultViewModel(parameter: parameter)
+        
+        viewModel.selectedRecommendKeyword = { [weak self] keyword in
+            self?.searchKeyword.accept(keyword)
+            self?.search.accept(())
+        }
+        
+        viewModel.selectedSoftwareItem = { [weak self] item in
+            self?.moveTo.accept(.softwareDetail(item))
+        }
+        return viewModel
     }
 }

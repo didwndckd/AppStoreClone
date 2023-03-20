@@ -11,11 +11,12 @@ import RxCocoa
 
 extension SearchResultViewModel {
     struct Parameter {
-        let searchKeyword: BehaviorRelay<String>
-        let search: PublishRelay<Void>
+        let searchKeyword: Observable<String>
+        let search: Observable<Void>
     }
     struct Input {
         let selectedRecommendKeyword: Signal<Int>
+        let selectedSoftware: Signal<Int>
         let nextPage: Signal<Void>
     }
     

@@ -20,5 +20,10 @@ extension SearchViewModel {
         let reload: Driver<Void>
         let searchKeyword: Driver<String>
         let isSearchMode: Driver<Bool>
+        let moveTo: Driver<MoveTo>
+    }
+    
+    enum MoveTo {
+        case softwareDetail(SoftwareItem)
     }
 }

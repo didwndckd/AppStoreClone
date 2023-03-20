@@ -12,8 +12,11 @@ import RxCocoa
 final class SearchResultViewModel: ViewModel {
     private let disposeBag = DisposeBag()
     private var searchDisposeBag = DisposeBag()
-    private let searchKeyword: BehaviorRelay<String>
-    private let search: PublishRelay<Void>
+    private let searchKeyword: Observable<String>
+    private let search: Observable<Void>
+    var selectedRecommendKeyword: ((String) -> Void)?
+    var selectedSoftwareItem: ((SoftwareItem) -> Void)?
+    
     private let searchLoading = LoadingTracker()
     private let nextPageLoading = LoadingTracker()
     private let recommendKeywordList = BehaviorRelay<[String]>(value: [])
@@ -62,8 +65,18 @@ extension SearchResultViewModel {
                 return list.safety(index: index)
             }
             .bind(onNext: { [weak self] keyword in
-                self?.searchKeyword.accept(keyword)
-                self?.search.accept(())
+                self?.selectedRecommendKeyword?(keyword)
+            })
+            .disposed(by: self.disposeBag)
+        
+        input.selectedSoftware
+            .asObservable()
+            .withLatestFrom(self.softwareItems) { ($0, $1) }
+            .compactMap { index, items in
+                return items.safety(index: index)
+            }
+            .bind(onNext: { [weak self] item in
+                self?.selectedSoftwareItem?(item)
             })
             .disposed(by: self.disposeBag)
         

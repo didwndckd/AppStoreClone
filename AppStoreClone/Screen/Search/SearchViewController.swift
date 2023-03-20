@@ -72,6 +72,15 @@ extension SearchViewController {
             .filter { $0 }
             .drive(self.searchController.rx.isActive)
             .disposed(by: self.disposeBag)
+        
+        output.moveTo
+            .drive(onNext: { [weak self] moveTo in
+                switch moveTo {
+                case .softwareDetail(let item):
+                    self?.pushDetail(item: item)
+                }
+            })
+            .disposed(by: self.disposeBag)
     }
 }
 
@@ -113,5 +122,14 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.searchKeyword.accept("")
+    }
+}
+
+// MARK: Moveto
+extension SearchViewController {
+    private func pushDetail(item: SoftwareItem) {
+        let viewModel = SoftwareDetailViewModel(softwareItem: item)
+        let viewController = SoftwareDetailViewController.instantiate(withViewModel: viewModel)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

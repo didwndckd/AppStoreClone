@@ -44,6 +44,10 @@
 		316A44C329C8B1AC005ADAF2 /* DefaultLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44C229C8B1AC005ADAF2 /* DefaultLoadingView.swift */; };
 		316A44C529C8C58E005ADAF2 /* LatestSearchKeywordHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44C429C8C58E005ADAF2 /* LatestSearchKeywordHeaderView.swift */; };
 		316A44C729C8C5B4005ADAF2 /* LatestSearchKeywordHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316A44C629C8C5B4005ADAF2 /* LatestSearchKeywordHeaderView.xib */; };
+		316A44CC29C8CD23005ADAF2 /* SoftwareDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316A44C929C8CD23005ADAF2 /* SoftwareDetailViewController.storyboard */; };
+		316A44CD29C8CD23005ADAF2 /* SoftwareDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44CA29C8CD23005ADAF2 /* SoftwareDetailViewController.swift */; };
+		316A44CE29C8CD23005ADAF2 /* SoftwareDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44CB29C8CD23005ADAF2 /* SoftwareDetailViewModel.swift */; };
+		316A44D029C8CD36005ADAF2 /* SoftwareDetailViewModel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44CF29C8CD36005ADAF2 /* SoftwareDetailViewModel+.swift */; };
 		3194F10C29C5ABDE0055AA7D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 3194F10B29C5ABDE0055AA7D /* RxCocoa */; };
 		3194F10E29C5ABDE0055AA7D /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 3194F10D29C5ABDE0055AA7D /* RxRelay */; };
 		3194F11029C5ABDE0055AA7D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3194F10F29C5ABDE0055AA7D /* RxSwift */; };
@@ -132,6 +136,10 @@
 		316A44C229C8B1AC005ADAF2 /* DefaultLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoadingView.swift; sourceTree = "<group>"; };
 		316A44C429C8C58E005ADAF2 /* LatestSearchKeywordHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestSearchKeywordHeaderView.swift; sourceTree = "<group>"; };
 		316A44C629C8C5B4005ADAF2 /* LatestSearchKeywordHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatestSearchKeywordHeaderView.xib; sourceTree = "<group>"; };
+		316A44C929C8CD23005ADAF2 /* SoftwareDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SoftwareDetailViewController.storyboard; sourceTree = "<group>"; };
+		316A44CA29C8CD23005ADAF2 /* SoftwareDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftwareDetailViewController.swift; sourceTree = "<group>"; };
+		316A44CB29C8CD23005ADAF2 /* SoftwareDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftwareDetailViewModel.swift; sourceTree = "<group>"; };
+		316A44CF29C8CD36005ADAF2 /* SoftwareDetailViewModel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SoftwareDetailViewModel+.swift"; sourceTree = "<group>"; };
 		3194F11229C5AC110055AA7D /* APITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITarget.swift; sourceTree = "<group>"; };
 		3194F11929C5AD8C0055AA7D /* APITargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITargetType.swift; sourceTree = "<group>"; };
 		3194F11B29C5AE0E0055AA7D /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
@@ -355,6 +363,17 @@
 			path = Loading;
 			sourceTree = "<group>";
 		};
+		316A44C829C8CD12005ADAF2 /* SoftwareDetail */ = {
+			isa = PBXGroup;
+			children = (
+				316A44CB29C8CD23005ADAF2 /* SoftwareDetailViewModel.swift */,
+				316A44CF29C8CD36005ADAF2 /* SoftwareDetailViewModel+.swift */,
+				316A44C929C8CD23005ADAF2 /* SoftwareDetailViewController.storyboard */,
+				316A44CA29C8CD23005ADAF2 /* SoftwareDetailViewController.swift */,
+			);
+			path = SoftwareDetail;
+			sourceTree = "<group>";
+		};
 		3194F10129C5AA050055AA7D /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +411,7 @@
 		3194F12429C5C6020055AA7D /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				316A44C829C8CD12005ADAF2 /* SoftwareDetail */,
 				3194F13329C5CCC70055AA7D /* Main */,
 				3194F12529C5C6410055AA7D /* Search */,
 				315FDA3429C5D8FA0049B3A7 /* SearchResult */,
@@ -574,6 +594,7 @@
 				3140618B29C591C50099F6F8 /* Assets.xcassets in Resources */,
 				3140618929C591C30099F6F8 /* Main.storyboard in Resources */,
 				31D4C6C629C81DD7009E9207 /* SoftwareCell.xib in Resources */,
+				316A44CC29C8CD23005ADAF2 /* SoftwareDetailViewController.storyboard in Resources */,
 				316A44C729C8C5B4005ADAF2 /* LatestSearchKeywordHeaderView.xib in Resources */,
 				31D4C6AE29C6ED21009E9207 /* RecommendSearchKeywordCell.xib in Resources */,
 				315FDA4929C5E0F10049B3A7 /* LatestSearchKeywordCell.xib in Resources */,
@@ -612,6 +633,7 @@
 				315FDA3A29C5D99B0049B3A7 /* SearchResultViewModel.swift in Sources */,
 				316A44C129C8B195005ADAF2 /* LoadingView.swift in Sources */,
 				316A44BC29C88FA8005ADAF2 /* Int+.swift in Sources */,
+				316A44D029C8CD36005ADAF2 /* SoftwareDetailViewModel+.swift in Sources */,
 				31D4C6AD29C6ED21009E9207 /* RecommendSearchKeywordCell.swift in Sources */,
 				3194F13529C5CCE70055AA7D /* MainTabBarViewController.swift in Sources */,
 				3140618629C591C30099F6F8 /* ViewController.swift in Sources */,
@@ -620,6 +642,7 @@
 				31D4C6AA29C6EA62009E9207 /* SearchResultViewModel+.swift in Sources */,
 				3194F12329C5BCF70055AA7D /* Error+.swift in Sources */,
 				31D4C6BB29C73DF0009E9207 /* APILogPlugin.swift in Sources */,
+				316A44CD29C8CD23005ADAF2 /* SoftwareDetailViewController.swift in Sources */,
 				315FDA4829C5E0F10049B3A7 /* LatestSearchKeywordCell.swift in Sources */,
 				3194F12729C5C6500055AA7D /* SearchViewModel.swift in Sources */,
 				315E1F0929C6E19300C51259 /* LatestSearchKeywordStoreItem.swift in Sources */,
@@ -636,6 +659,7 @@
 				3140618429C591C30099F6F8 /* SceneDelegate.swift in Sources */,
 				315FDA4329C5DEF10049B3A7 /* ReusableView.swift in Sources */,
 				3194F12929C5C66F0055AA7D /* SearchViewModel+.swift in Sources */,
+				316A44CE29C8CD23005ADAF2 /* SoftwareDetailViewModel.swift in Sources */,
 				31D4C6BF29C819B8009E9207 /* SoftwareItem.swift in Sources */,
 				31D4C6B929C73554009E9207 /* ItunesSearchSoftwareResponseModel.swift in Sources */,
 				31D4C6B229C715E7009E9207 /* APITarget.Itunes.swift in Sources */,

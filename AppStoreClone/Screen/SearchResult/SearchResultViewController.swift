@@ -50,6 +50,7 @@ final class SearchResultViewController: BaseViewController, StoryboardBased, Vie
 extension SearchResultViewController {
     private func bindUI() {
         let input = ViewModelType.Input(selectedRecommendKeyword: self.selectedRecommendKeyword.asSignal(),
+                                        selectedSoftware: self.selectedSoftware.asSignal(),
                                         nextPage: self.nextPage.asSignal())
         let output = self.viewModel.transform(input: input)
         
