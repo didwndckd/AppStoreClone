@@ -58,7 +58,7 @@ extension SoftwareDetailHeaderCell {
     }
     
     var hiddenOffset: CGFloat {
-        return self.frame.minY + self.downloadButton.frame.minY
+        return self.frame.minY + self.downloadButton.frame.minY + 16
     }
     
     var isHiddenMode: Bool {

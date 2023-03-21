@@ -9,13 +9,14 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class SoftwareDetailViewModel: ViewModel {
+final class SoftwareDetailViewModel: BaseViewModel, ViewModel {
     private let disposeBag = DisposeBag()
-    private let softwareItem: BehaviorRelay<SoftwareItem>
+    private var softwareItem: BehaviorRelay<SoftwareItem>
     private let rows = BehaviorRelay<[RowType]>(value: [])
     
     init(softwareItem: SoftwareItem) {
         self.softwareItem = .init(value: softwareItem)
+        super.init()
         self.bind()
     }
 }
@@ -36,9 +37,9 @@ extension SoftwareDetailViewModel {
                 
                 let newFeatureItem = NewFeatureItem(version: item.version,
                                                     releaseNotes: item.releaseNotes,
-                                                    releaseDate: item.releaseDate)
+                                                    releaseDate: item.currentVersionReleaseDate)
                 
-                let previewItem = PreviewItem(screenshotUrls: item.screenshotUrls)
+                let previewItem = PreviewItem(screenshotItems: item.screenshotUrls.compactMap { ScreenshotItem(imageUrl: $0) })
                 
                 let descriptionItem = DescriptionItem(description: item.description, developerName: item.developerName)
                 

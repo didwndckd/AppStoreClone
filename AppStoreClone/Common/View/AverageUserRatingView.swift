@@ -32,8 +32,8 @@ final class AverageUserRatingView: UIView {
         
         self.componentVeiws = (0...4).map { _ in
             let view = ImageProgressComponentView()
-            view.fillImageView.tintColor = .separator
-            view.guideImageView.tintColor = .separator
+            view.fillImageView.tintColor = .gray
+            view.guideImageView.tintColor = .gray
             self.setupComponentViewSize(view: view)
             return view
         }

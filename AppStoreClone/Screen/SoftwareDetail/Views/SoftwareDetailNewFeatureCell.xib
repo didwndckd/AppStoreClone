@@ -73,24 +73,15 @@
                                     <constraint firstItem="QM8-f1-zX6" firstAttribute="leading" secondItem="7O4-Q9-WZ8" secondAttribute="leading" constant="20" id="gi5-Xv-PiK"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MyC-XH-1ZC" userLabel="separator">
-                                <rect key="frame" x="0.0" y="112.66666666666666" width="361" height="0.3333333333333286"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="0.5" id="JZD-cs-2Sn"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eYD-YP-9fn" firstAttribute="leading" secondItem="vog-TT-OyW" secondAttribute="leading" id="3WD-9b-uir"/>
                             <constraint firstItem="eYD-YP-9fn" firstAttribute="top" secondItem="vog-TT-OyW" secondAttribute="top" id="49n-48-vBp"/>
                             <constraint firstItem="7O4-Q9-WZ8" firstAttribute="bottom" secondItem="B3D-Xp-pWm" secondAttribute="bottom" id="6lk-iJ-XSv"/>
-                            <constraint firstAttribute="bottom" secondItem="MyC-XH-1ZC" secondAttribute="bottom" id="B6f-IM-XxH"/>
                             <constraint firstAttribute="trailing" secondItem="bRt-V4-QZl" secondAttribute="trailing" id="EPf-JF-4Ad"/>
                             <constraint firstAttribute="trailing" secondItem="7O4-Q9-WZ8" secondAttribute="trailing" id="EbX-rr-9Yf"/>
                             <constraint firstItem="bRt-V4-QZl" firstAttribute="leading" secondItem="eYD-YP-9fn" secondAttribute="trailing" constant="16" id="FAD-75-ZTc"/>
-                            <constraint firstAttribute="trailing" secondItem="MyC-XH-1ZC" secondAttribute="trailing" id="GVy-36-n8H"/>
                             <constraint firstItem="r5L-Ph-6dJ" firstAttribute="firstBaseline" secondItem="H67-2l-Dpl" secondAttribute="firstBaseline" id="GXh-7T-7Sz"/>
                             <constraint firstItem="bRt-V4-QZl" firstAttribute="firstBaseline" secondItem="eYD-YP-9fn" secondAttribute="firstBaseline" id="ItG-ec-hmr"/>
                             <constraint firstItem="B3D-Xp-pWm" firstAttribute="top" secondItem="H67-2l-Dpl" secondAttribute="bottom" constant="16" id="O7l-wz-IUM"/>
@@ -99,17 +90,26 @@
                             <constraint firstItem="H67-2l-Dpl" firstAttribute="leading" secondItem="vog-TT-OyW" secondAttribute="leading" id="ZX5-JY-bd3"/>
                             <constraint firstItem="H67-2l-Dpl" firstAttribute="top" secondItem="eYD-YP-9fn" secondAttribute="bottom" constant="16" id="cJZ-Rj-JAy"/>
                             <constraint firstAttribute="bottom" secondItem="B3D-Xp-pWm" secondAttribute="bottom" constant="16" id="ikM-P7-mbn"/>
-                            <constraint firstItem="MyC-XH-1ZC" firstAttribute="leading" secondItem="vog-TT-OyW" secondAttribute="leading" id="m3i-cD-Gjh"/>
                             <constraint firstItem="r5L-Ph-6dJ" firstAttribute="leading" secondItem="H67-2l-Dpl" secondAttribute="trailing" constant="16" id="put-u5-108"/>
                             <constraint firstAttribute="trailing" secondItem="B3D-Xp-pWm" secondAttribute="trailing" id="xHi-aL-XTW"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MyC-XH-1ZC" userLabel="separator">
+                        <rect key="frame" x="16" y="367.66666666666669" width="361" height="0.33333333333331439"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="JZD-cs-2Sn"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="vog-TT-OyW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="88e-kq-WAx"/>
+                    <constraint firstAttribute="trailing" secondItem="MyC-XH-1ZC" secondAttribute="trailing" constant="16" id="99v-sf-B0Z"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vog-TT-OyW" secondAttribute="bottom" constant="16" id="DB0-Oj-fEV"/>
                     <constraint firstItem="vog-TT-OyW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="EVD-98-P2w"/>
                     <constraint firstAttribute="trailing" secondItem="vog-TT-OyW" secondAttribute="trailing" constant="16" id="XaX-L6-hjX"/>
+                    <constraint firstAttribute="bottom" secondItem="MyC-XH-1ZC" secondAttribute="bottom" id="fqo-77-2v1"/>
+                    <constraint firstItem="MyC-XH-1ZC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="z48-73-vyh"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

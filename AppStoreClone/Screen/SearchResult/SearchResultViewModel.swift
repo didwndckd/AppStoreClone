@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class SearchResultViewModel: ViewModel {
+final class SearchResultViewModel: BaseViewModel, ViewModel {
     private let disposeBag = DisposeBag()
     private var searchDisposeBag = DisposeBag()
     private let searchKeyword: Observable<String>
@@ -17,6 +17,7 @@ final class SearchResultViewModel: ViewModel {
     var selectedRecommendKeyword: ((String) -> Void)?
     var selectedSoftwareItem: ((SoftwareItem) -> Void)?
     
+    private let haveNextPage = BehaviorRelay(value: false)
     private let searchLoading = LoadingTracker()
     private let nextPageLoading = LoadingTracker()
     private let recommendKeywordList = BehaviorRelay<[String]>(value: [])
@@ -26,6 +27,7 @@ final class SearchResultViewModel: ViewModel {
     init(parameter: Parameter) {
         self.searchKeyword = parameter.searchKeyword
         self.search = parameter.search
+        super.init()
         self.bind()
     }
 }
@@ -86,8 +88,9 @@ extension SearchResultViewModel {
             .withLatestFrom(self.nextPageLoading) { ($0, $1) }
             .withLatestFrom(self.softwareItems) { ($0.0, $0.1, $1) }
             .withLatestFrom(self.searchKeyword) { ($0.0, $0.1, $0.2, $1) }
-            .compactMap { loading, nextPageLoading, items, keyword -> (String, [SoftwareItem])? in
-                guard !loading && !nextPageLoading && !items.isEmpty else { return nil }
+            .withLatestFrom(self.haveNextPage) { ($0.0, $0.1, $0.2, $0.3, $1) }
+            .compactMap { loading, nextPageLoading, items, keyword, haveNextPage -> (String, [SoftwareItem])? in
+                guard !loading && !nextPageLoading && haveNextPage else { return nil }
                 return (keyword, items)
             }
             .bind(onNext: { [weak self] keyword, items in
@@ -121,10 +124,17 @@ extension SearchResultViewModel {
         let lang = Locale.preferredLanguages.first ?? ""
         let term = keyword.replacingOccurrences(of: " ", with: "+")
         
-        let target = APITarget.Itunes.search(country: country, media: ItunesMediaType.software.rawValue, lang: lang, term: term, offset: offset, limit: 20)
+        let target = APITarget.Itunes.search(country: country,
+                                             media: ItunesMediaType.software.rawValue,
+                                             lang: lang,
+                                             term: term,
+                                             offset: offset,
+                                             limit: 20)
+        
         return APIService.request(target, parsingType: ItunesSearchSoftwareResponseModel.self)
             .asObservable()
             .map { response in
+                let dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
                 let newItems = response.results.map { item in
                     return SoftwareItem(name: item.trackCensoredName,
                                         developerName: item.artistName,
@@ -140,7 +150,8 @@ extension SearchResultViewModel {
                                         trackContentRating: item.trackContentRating,
                                         languageCodes: item.languageCodesISO2A,
                                         version: item.version,
-                                        releaseDate: item.releaseDate.toDate(format: "yyyy-MM-dd'T'HH:mm:ss.SSS"))
+                                        releaseDate: item.releaseDate.toDate(format: dateFormat, timeZone: TimeZone(identifier: "GMT")),
+                                        currentVersionReleaseDate: item.currentVersionReleaseDate.toDate(format: dateFormat, timeZone: TimeZone(identifier: "GMT")))
                 }
                 return newItems
             }
@@ -155,13 +166,11 @@ extension SearchResultViewModel {
         self.softwareItemsRequest(keyword: keyword, offset: 0)
             .delay(.milliseconds(100), scheduler: MainScheduler.instance)
             .trackLoading(self.searchLoading)
-            .subscribe(
-                onNext: { [weak self] items in
-                    self?.softwareItems.accept(items)
-                },
-                onError: { error in
-                    print(error.localizedDescription)
-                })
+            .catchAndReturn([])
+            .bind(onNext: { [weak self] items in
+                self?.softwareItems.accept(items)
+                self?.haveNextPage.accept(!items.isEmpty)
+            })
             .disposed(by: self.searchDisposeBag)
     }
     
@@ -170,9 +179,11 @@ extension SearchResultViewModel {
         
         self.softwareItemsRequest(keyword: keyword, offset: oldItems.count)
             .trackLoading(self.nextPageLoading)
-            .catchAndReturn(oldItems)
-            .map { oldItems + $0 }
-            .bind(to: self.softwareItems)
+            .catchAndReturn([])
+            .bind(onNext: { [weak self] items in
+                self?.softwareItems.accept(oldItems + items)
+                self?.haveNextPage.accept(!items.isEmpty)
+            })
             .disposed(by: self.searchDisposeBag)
     }
     

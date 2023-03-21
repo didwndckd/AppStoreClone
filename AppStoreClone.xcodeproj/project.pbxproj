@@ -57,6 +57,13 @@
 		316A44EF29C9A310005ADAF2 /* SoftwareDetailNewFeatureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316A44ED29C9A310005ADAF2 /* SoftwareDetailNewFeatureCell.xib */; };
 		316A44F129C9AA8A005ADAF2 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44F029C9AA8A005ADAF2 /* CALayer+.swift */; };
 		316A44F529C9BAE1005ADAF2 /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44F429C9BAE1005ADAF2 /* Double+.swift */; };
+		316A44F929C9C507005ADAF2 /* SoftwareDetailPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44F729C9C507005ADAF2 /* SoftwareDetailPreviewCell.swift */; };
+		316A44FA29C9C507005ADAF2 /* SoftwareDetailPreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316A44F829C9C507005ADAF2 /* SoftwareDetailPreviewCell.xib */; };
+		316A44FC29C9E279005ADAF2 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44FB29C9E279005ADAF2 /* BaseViewModel.swift */; };
+		316A450129C9F3AE005ADAF2 /* SoftwareDetailPreviewContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A44FF29C9F3AE005ADAF2 /* SoftwareDetailPreviewContentCell.swift */; };
+		316A450229C9F3AE005ADAF2 /* SoftwareDetailPreviewContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316A450029C9F3AE005ADAF2 /* SoftwareDetailPreviewContentCell.xib */; };
+		316A450429C9F508005ADAF2 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A450329C9F508005ADAF2 /* UICollectionView+.swift */; };
+		316A450629C9F589005ADAF2 /* ScreenshotItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A450529C9F589005ADAF2 /* ScreenshotItem.swift */; };
 		3194F10C29C5ABDE0055AA7D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 3194F10B29C5ABDE0055AA7D /* RxCocoa */; };
 		3194F10E29C5ABDE0055AA7D /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 3194F10D29C5ABDE0055AA7D /* RxRelay */; };
 		3194F11029C5ABDE0055AA7D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3194F10F29C5ABDE0055AA7D /* RxSwift */; };
@@ -158,6 +165,13 @@
 		316A44ED29C9A310005ADAF2 /* SoftwareDetailNewFeatureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoftwareDetailNewFeatureCell.xib; sourceTree = "<group>"; };
 		316A44F029C9AA8A005ADAF2 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		316A44F429C9BAE1005ADAF2 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
+		316A44F729C9C507005ADAF2 /* SoftwareDetailPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftwareDetailPreviewCell.swift; sourceTree = "<group>"; };
+		316A44F829C9C507005ADAF2 /* SoftwareDetailPreviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoftwareDetailPreviewCell.xib; sourceTree = "<group>"; };
+		316A44FB29C9E279005ADAF2 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		316A44FF29C9F3AE005ADAF2 /* SoftwareDetailPreviewContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftwareDetailPreviewContentCell.swift; sourceTree = "<group>"; };
+		316A450029C9F3AE005ADAF2 /* SoftwareDetailPreviewContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoftwareDetailPreviewContentCell.xib; sourceTree = "<group>"; };
+		316A450329C9F508005ADAF2 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		316A450529C9F589005ADAF2 /* ScreenshotItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotItem.swift; sourceTree = "<group>"; };
 		3194F11229C5AC110055AA7D /* APITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITarget.swift; sourceTree = "<group>"; };
 		3194F11929C5AD8C0055AA7D /* APITargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITargetType.swift; sourceTree = "<group>"; };
 		3194F11B29C5AE0E0055AA7D /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
@@ -297,6 +311,7 @@
 				314061B629C59F130099F6F8 /* ViewModelBased.swift */,
 				314061B829C5A1090099F6F8 /* StoryboardBased.swift */,
 				3194F12C29C5C6EE0055AA7D /* BaseViewController.swift */,
+				316A44FB29C9E279005ADAF2 /* BaseViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -348,6 +363,7 @@
 			children = (
 				31D4C6BC29C73FD8009E9207 /* ItunesMediaType.swift */,
 				31D4C6BE29C819B8009E9207 /* SoftwareItem.swift */,
+				316A450529C9F589005ADAF2 /* ScreenshotItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -400,6 +416,10 @@
 				316A44E529C99343005ADAF2 /* SoftwareDetailHeaderCell.xib */,
 				316A44EC29C9A310005ADAF2 /* SoftwareDetailNewFeatureCell.swift */,
 				316A44ED29C9A310005ADAF2 /* SoftwareDetailNewFeatureCell.xib */,
+				316A44F729C9C507005ADAF2 /* SoftwareDetailPreviewCell.swift */,
+				316A44F829C9C507005ADAF2 /* SoftwareDetailPreviewCell.xib */,
+				316A44FF29C9F3AE005ADAF2 /* SoftwareDetailPreviewContentCell.swift */,
+				316A450029C9F3AE005ADAF2 /* SoftwareDetailPreviewContentCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -439,6 +459,7 @@
 				316A44E229C98F81005ADAF2 /* Date+.swift */,
 				316A44F429C9BAE1005ADAF2 /* Double+.swift */,
 				316A44F029C9AA8A005ADAF2 /* CALayer+.swift */,
+				316A450329C9F508005ADAF2 /* UICollectionView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -626,12 +647,14 @@
 			files = (
 				316A44EF29C9A310005ADAF2 /* SoftwareDetailNewFeatureCell.xib in Resources */,
 				316A44E729C99343005ADAF2 /* SoftwareDetailHeaderCell.xib in Resources */,
+				316A450229C9F3AE005ADAF2 /* SoftwareDetailPreviewContentCell.xib in Resources */,
 				315FDA3829C5D99B0049B3A7 /* SearchResultViewController.storyboard in Resources */,
 				3140618E29C591C50099F6F8 /* LaunchScreen.storyboard in Resources */,
 				3140618B29C591C50099F6F8 /* Assets.xcassets in Resources */,
 				3140618929C591C30099F6F8 /* Main.storyboard in Resources */,
 				31D4C6C629C81DD7009E9207 /* SoftwareCell.xib in Resources */,
 				316A44CC29C8CD23005ADAF2 /* SoftwareDetailViewController.storyboard in Resources */,
+				316A44FA29C9C507005ADAF2 /* SoftwareDetailPreviewCell.xib in Resources */,
 				316A44C729C8C5B4005ADAF2 /* LatestSearchKeywordHeaderView.xib in Resources */,
 				31D4C6AE29C6ED21009E9207 /* RecommendSearchKeywordCell.xib in Resources */,
 				315FDA4929C5E0F10049B3A7 /* LatestSearchKeywordCell.xib in Resources */,
@@ -684,10 +707,12 @@
 				316A44F129C9AA8A005ADAF2 /* CALayer+.swift in Sources */,
 				31D4C6BB29C73DF0009E9207 /* APILogPlugin.swift in Sources */,
 				316A44CD29C8CD23005ADAF2 /* SoftwareDetailViewController.swift in Sources */,
+				316A450629C9F589005ADAF2 /* ScreenshotItem.swift in Sources */,
 				315FDA4829C5E0F10049B3A7 /* LatestSearchKeywordCell.swift in Sources */,
 				3194F12729C5C6500055AA7D /* SearchViewModel.swift in Sources */,
 				315E1F0929C6E19300C51259 /* LatestSearchKeywordStoreItem.swift in Sources */,
 				315E1F0229C6DC3B00C51259 /* Constants.swift in Sources */,
+				316A450129C9F3AE005ADAF2 /* SoftwareDetailPreviewContentCell.swift in Sources */,
 				315FDA3E29C5DDB50049B3A7 /* NibLoadableView.swift in Sources */,
 				314061B529C59E0F0099F6F8 /* ViewModel.swift in Sources */,
 				316A44C529C8C58E005ADAF2 /* LatestSearchKeywordHeaderView.swift in Sources */,
@@ -703,6 +728,7 @@
 				3140618429C591C30099F6F8 /* SceneDelegate.swift in Sources */,
 				315FDA4329C5DEF10049B3A7 /* ReusableView.swift in Sources */,
 				3194F12929C5C66F0055AA7D /* SearchViewModel+.swift in Sources */,
+				316A44F929C9C507005ADAF2 /* SoftwareDetailPreviewCell.swift in Sources */,
 				316A44CE29C8CD23005ADAF2 /* SoftwareDetailViewModel.swift in Sources */,
 				31D4C6BF29C819B8009E9207 /* SoftwareItem.swift in Sources */,
 				31D4C6B929C73554009E9207 /* ItunesSearchSoftwareResponseModel.swift in Sources */,
@@ -712,9 +738,11 @@
 				31D4C6C529C81DD7009E9207 /* SoftwareCell.swift in Sources */,
 				3194F12D29C5C6EE0055AA7D /* BaseViewController.swift in Sources */,
 				3194F11C29C5AE0E0055AA7D /* APIProvider.swift in Sources */,
+				316A44FC29C9E279005ADAF2 /* BaseViewModel.swift in Sources */,
 				315FDA3929C5D99B0049B3A7 /* SearchResultViewController.swift in Sources */,
 				3194F12029C5B9AA0055AA7D /* APIError.swift in Sources */,
 				316A44BF29C8B185005ADAF2 /* Loadable.swift in Sources */,
+				316A450429C9F508005ADAF2 /* UICollectionView+.swift in Sources */,
 				315FDA4529C5E0250049B3A7 /* UITableView+.swift in Sources */,
 				31D4C6BD29C73FD9009E9207 /* ItunesMediaType.swift in Sources */,
 			);

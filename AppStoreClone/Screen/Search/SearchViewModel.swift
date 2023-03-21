@@ -9,14 +9,15 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class SearchViewModel: ViewModel {
+final class SearchViewModel: BaseViewModel, ViewModel {
     private let disposeBag = DisposeBag()
     private let searchKeyword = BehaviorRelay(value: "")
     private let search = PublishRelay<Void>()
     private let latestKeywordList = BehaviorRelay<[String]>(value: [])
     private let moveTo = PublishRelay<MoveTo?>()
     
-    init() {
+    override init() {
+        super.init()
         self.bind()
     }
 }

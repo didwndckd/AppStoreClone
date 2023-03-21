@@ -39,6 +39,7 @@ extension ItunesSearchSoftwareResponseModel {
         let languageCodesISO2A: [String]
         let version: String
         let releaseDate: String
+        let currentVersionReleaseDate: String
     }
 }
 
@@ -59,6 +60,7 @@ extension ItunesSearchSoftwareResponseModel.Item: Decodable {
         case languageCodesISO2A
         case version
         case releaseDate
+        case currentVersionReleaseDate
     }
     
     init(from decoder: Decoder) throws {
@@ -78,5 +80,6 @@ extension ItunesSearchSoftwareResponseModel.Item: Decodable {
         self.languageCodesISO2A = (try? container.decode([String].self, forKey: .languageCodesISO2A)) ?? []
         self.version = (try? container.decode(String.self, forKey: .version)) ?? ""
         self.releaseDate = (try? container.decode(String.self, forKey: .releaseDate)) ?? ""
+        self.currentVersionReleaseDate = (try? container.decode(String.self, forKey: .currentVersionReleaseDate)) ?? ""
     }
 }

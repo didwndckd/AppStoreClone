@@ -58,11 +58,11 @@ extension SoftwareDetailViewModel {
     }
     
     final class PreviewItem {
-        let screenshotUrls: [String]
+        let screenshotItems: [ScreenshotItem]
         var currentIndex: Int
         
-        init(screenshotUrls: [String], currentIndex: Int = 0) {
-            self.screenshotUrls = screenshotUrls
+        init(screenshotItems: [ScreenshotItem], currentIndex: Int = 2) {
+            self.screenshotItems = screenshotItems
             self.currentIndex = currentIndex
         }
     }

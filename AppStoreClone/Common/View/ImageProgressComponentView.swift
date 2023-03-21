@@ -41,7 +41,7 @@ final class ImageProgressComponentView: UIView {
         }
         
         self.layer.addSublayer(self.maskLayer)
-        self.maskLayer.backgroundColor = UIColor.black.cgColor
+        self.maskLayer.backgroundColor = UIColor.white.cgColor
         self.fillImageView.layer.mask = self.maskLayer
     }
     

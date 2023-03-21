@@ -60,8 +60,18 @@ final class SoftwareDetailNewFeatureCell: UITableViewCell, NibLoadableView, Reus
             return
         }
         
-        let dayInterval = -Int(date.timeIntervalSinceNow / .oneDay)
-        if dayInterval < 7 {
+        let timeInterval = -date.timeIntervalSinceNow
+        let dayInterval = Int(timeInterval / .oneDay)
+        
+        if timeInterval < .oneHour {
+            let minute = Int(timeInterval / .oneMinute)
+            self.releaseDateLabel.text = "\(minute)분 전"
+        }
+        else if timeInterval < .oneDay {
+            let hours = Int(timeInterval / .oneHour)
+            self.releaseDateLabel.text = "\(hours)시간 전"
+        }
+        else if dayInterval < 7 {
             self.releaseDateLabel.text = "\(dayInterval)일 전"
         }
         else if dayInterval < 36 {
@@ -83,5 +93,6 @@ extension SoftwareDetailNewFeatureCell {
         self.setupReleaseDateLabel(date: item.releaseDate)
         self.releaseNotesLabel.text = item.releaseNotes
         self.releaseNotesLabel.numberOfLines = item.isFold ? 3: 0
+        self.moreButtonWrapperView.isHidden = !item.isFold
     }
 }

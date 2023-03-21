@@ -67,13 +67,8 @@ final class SoftwareDetailViewController: BaseViewController, StoryboardBased, V
         self.tableView.separatorStyle = .none
         self.tableView.register(SoftwareDetailHeaderCell.self)
         self.tableView.register(SoftwareDetailNewFeatureCell.self)
+        self.tableView.register(SoftwareDetailPreviewCell.self)
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "spacing")
-        
-//        let test = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
-//        self.view.addSubview(test)
-//        test.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
     }
     
     private func setupAction() {
@@ -160,6 +155,10 @@ extension SoftwareDetailViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(SoftwareDetailNewFeatureCell.self, for: indexPath)
             cell.configure(item: item)
             cell.more = { [weak self] in self?.tableView.reloadRows(at: [indexPath], with: .fade) }
+            return cell
+        case .preview(let item):
+            let cell = tableView.dequeueReusableCell(SoftwareDetailPreviewCell.self, for: indexPath)
+            cell.configure(item: item)
             return cell
         default:
             return self.tableView.dequeueReusableCell(withIdentifier: "spacing", for: indexPath)

@@ -56,9 +56,11 @@
                                         <state key="normal" title="받기"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZzD-VK-FWF">
-                                        <rect key="frame" x="477" y="87.666666666666671" width="19" height="22.333333333333329"/>
+                                        <rect key="frame" x="476.66666666666669" y="87.333333333333329" width="19.333333333333314" height="22.666666666666671"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                        <state key="normal" image="square.and.arrow.up" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
+                                        </state>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

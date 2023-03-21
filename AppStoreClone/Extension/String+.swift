@@ -8,9 +8,10 @@
 import Foundation
 
 extension String {
-    func toDate(format: String) -> Date? {
+    func toDate(format: String, timeZone: TimeZone? = nil) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = format
+        formatter.timeZone = timeZone
         return formatter.date(from: self)
     }
 }

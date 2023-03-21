@@ -106,6 +106,7 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedLatestSearchKeyword.accept(indexPath.row)
+        WindowService.shared.window?.endEditing(true)
     }
 }
 

@@ -23,6 +23,7 @@ struct SoftwareItem {
     let languageCodes: [String]
     let version: String
     let releaseDate: Date?
+    let currentVersionReleaseDate: Date?
 }
 
 extension SoftwareItem {
@@ -41,7 +42,8 @@ extension SoftwareItem {
                             trackContentRating: "",
                             languageCodes: [],
                             version: "",
-                            releaseDate: nil)
+                            releaseDate: nil,
+                            currentVersionReleaseDate: nil)
     }
     
     var languageCode: String? {
