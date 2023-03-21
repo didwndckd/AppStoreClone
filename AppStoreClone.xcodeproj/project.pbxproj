@@ -66,6 +66,7 @@
 		316A450629C9F589005ADAF2 /* ScreenshotItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A450529C9F589005ADAF2 /* ScreenshotItem.swift */; };
 		316A450D29CA265A005ADAF2 /* SoftwareDetailDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A450B29CA265A005ADAF2 /* SoftwareDetailDescriptionCell.swift */; };
 		316A450E29CA265A005ADAF2 /* SoftwareDetailDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316A450C29CA265A005ADAF2 /* SoftwareDetailDescriptionCell.xib */; };
+		316A451229CA3E9C005ADAF2 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A451129CA3E9C005ADAF2 /* UILabel+.swift */; };
 		3194F10C29C5ABDE0055AA7D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 3194F10B29C5ABDE0055AA7D /* RxCocoa */; };
 		3194F10E29C5ABDE0055AA7D /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 3194F10D29C5ABDE0055AA7D /* RxRelay */; };
 		3194F11029C5ABDE0055AA7D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3194F10F29C5ABDE0055AA7D /* RxSwift */; };
@@ -176,6 +177,7 @@
 		316A450529C9F589005ADAF2 /* ScreenshotItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotItem.swift; sourceTree = "<group>"; };
 		316A450B29CA265A005ADAF2 /* SoftwareDetailDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftwareDetailDescriptionCell.swift; sourceTree = "<group>"; };
 		316A450C29CA265A005ADAF2 /* SoftwareDetailDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoftwareDetailDescriptionCell.xib; sourceTree = "<group>"; };
+		316A451129CA3E9C005ADAF2 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		3194F11229C5AC110055AA7D /* APITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITarget.swift; sourceTree = "<group>"; };
 		3194F11929C5AD8C0055AA7D /* APITargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITargetType.swift; sourceTree = "<group>"; };
 		3194F11B29C5AE0E0055AA7D /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 				316A44F429C9BAE1005ADAF2 /* Double+.swift */,
 				316A44F029C9AA8A005ADAF2 /* CALayer+.swift */,
 				316A450329C9F508005ADAF2 /* UICollectionView+.swift */,
+				316A451129CA3E9C005ADAF2 /* UILabel+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				3194F13029C5C9AA0055AA7D /* WindowService.swift in Sources */,
 				316A44F529C9BAE1005ADAF2 /* Double+.swift in Sources */,
 				316A44BA29C87F9F005ADAF2 /* AverageUserRatingView.swift in Sources */,
+				316A451229CA3E9C005ADAF2 /* UILabel+.swift in Sources */,
 				314061B929C5A1090099F6F8 /* StoryboardBased.swift in Sources */,
 				316A44EE29C9A310005ADAF2 /* SoftwareDetailNewFeatureCell.swift in Sources */,
 				3194F11E29C5B9290055AA7D /* APIService.swift in Sources */,

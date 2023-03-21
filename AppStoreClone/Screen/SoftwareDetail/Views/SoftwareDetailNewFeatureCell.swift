@@ -34,6 +34,10 @@ final class SoftwareDetailNewFeatureCell: UITableViewCell, NibLoadableView, Reus
     override func layoutSubviews() {
         super.layoutSubviews()
         self.moreButtonWrapperView.layer.updateCurrentShadowPath()
+        self.moreButtonWrapperView.layer.updateCurrentShadowPath()
+        if self.item?.isFold == true {
+            self.moreButtonWrapperView.isHidden = !self.releaseNotesLabel.isMoreText
+        }
     }
 
     private func setupUI() {
@@ -79,6 +83,17 @@ extension SoftwareDetailNewFeatureCell {
             self.releaseDateLabel.text = "\(dayInterval / 365)년 전"
         }
     }
+    
+    private func setupMoreButtonHidden() {
+        let numberOfLines = self.item?.releaseNotes.split(separator: "\n").count ?? 0
+        let isFold = self.item?.isFold == true
+        if isFold && numberOfLines < 4 {
+            self.moreButtonWrapperView.isHidden = !self.releaseNotesLabel.isMoreText
+        }
+        else {
+            self.moreButtonWrapperView.isHidden = !isFold
+        }
+    }
 }
 
 extension SoftwareDetailNewFeatureCell {
@@ -87,9 +102,7 @@ extension SoftwareDetailNewFeatureCell {
         self.versionLabel.text = item.version
         self.setupReleaseDateLabel(date: item.releaseDate)
         self.releaseNotesLabel.text = item.releaseNotes
-        let isMoreText = item.releaseNotes.split(separator: "\n").count > 3
-        let isFold = item.isFold && isMoreText
-        self.releaseNotesLabel.numberOfLines = isFold ? 3: 0
-        self.moreButtonWrapperView.isHidden = !isFold
+        self.releaseNotesLabel.numberOfLines = item.isFold ? 3: 0
+        self.moreButtonWrapperView.isHidden = !item.isFold
     }
 }

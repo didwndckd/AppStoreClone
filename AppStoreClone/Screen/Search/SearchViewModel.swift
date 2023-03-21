@@ -54,7 +54,7 @@ extension SearchViewModel {
         
         return Output(reload: self.latestKeywordList.asDriver().map { _ in () },
                       searchKeyword: self.searchKeyword.asDriver(),
-                      isSearchMode: self.searchKeyword.asDriver().map { !$0.isEmpty },
+                      isSearchMode: self.searchKeyword.asDriver().map { !$0.isEmpty }.distinctUntilChanged(),
                       moveTo: self.moveTo.asDriver(onErrorJustReturn: nil).compactMap { $0 })
     }
 }

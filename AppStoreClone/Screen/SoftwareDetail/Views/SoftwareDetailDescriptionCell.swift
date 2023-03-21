@@ -32,6 +32,7 @@ final class SoftwareDetailDescriptionCell: UITableViewCell, ReusableView, NibLoa
     override func layoutSubviews() {
         super.layoutSubviews()
         self.moreButtonWrapperView.layer.updateCurrentShadowPath()
+        self.setupMoreButtonHidden()
     }
 
     private func setupUI() {
@@ -47,13 +48,24 @@ final class SoftwareDetailDescriptionCell: UITableViewCell, ReusableView, NibLoa
 }
 
 extension SoftwareDetailDescriptionCell {
+    private func setupMoreButtonHidden() {
+        let numberOfLines = self.item?.description.split(separator: "\n").count ?? 0
+        let isFold = self.item?.isFold == true
+        if isFold && numberOfLines < 4 {
+            self.moreButtonWrapperView.isHidden = !self.descriptionLabel.isMoreText
+        }
+        else {
+            self.moreButtonWrapperView.isHidden = !isFold
+        }
+    }
+}
+
+extension SoftwareDetailDescriptionCell {
     func configure(item: Item) {
         self.item = item
         self.descriptionLabel.text = self.item?.description
         self.developerNameLabel.text = self.item?.developerName
-        let isMoreText = item.description.split(separator: "\n").count > 3
-        let isFold = item.isFold && isMoreText
-        self.descriptionLabel.numberOfLines = isFold ? 3: 0
-        self.moreButtonWrapperView.isHidden = !isFold
+        self.descriptionLabel.numberOfLines = item.isFold ? 3: 0
+        self.moreButtonWrapperView.isHidden = !item.isFold
     }
 }
