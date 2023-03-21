@@ -43,7 +43,7 @@ extension SoftwareDetailViewModel {
                 
                 let descriptionItem = DescriptionItem(description: item.description, developerName: item.developerName)
                 
-                return [.header(headerItem), .newFeature(newFeatureItem), .preview(previewItem), .description(descriptionItem), .spacing(1000)]
+                return [.header(headerItem), .newFeature(newFeatureItem), .preview(previewItem), .description(descriptionItem)]
             }
             .bind(to: self.rows)
             .disposed(by: self.disposeBag)

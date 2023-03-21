@@ -34,13 +34,6 @@ final class SoftwareDetailNewFeatureCell: UITableViewCell, NibLoadableView, Reus
     override func layoutSubviews() {
         super.layoutSubviews()
         self.moreButtonWrapperView.layer.updateCurrentShadowPath()
-        
-        let bounds = CGRect(origin: .zero, size: CGSize(width: self.releaseNotesLabel.bounds.width, height: CGFloat(Int.max)))
-        let fullTextHeight = self.releaseNotesLabel.textRect(forBounds: bounds,
-                                                             limitedToNumberOfLines: 0).height
-        let textHeight = self.releaseNotesLabel.textRect(forBounds: self.releaseNotesLabel.bounds,
-                                                         limitedToNumberOfLines: self.releaseNotesLabel.numberOfLines).height
-        self.moreButtonWrapperView.isHidden = fullTextHeight <= textHeight
     }
 
     private func setupUI() {
@@ -53,7 +46,9 @@ final class SoftwareDetailNewFeatureCell: UITableViewCell, NibLoadableView, Reus
             })
             .disposed(by: self.disposeBag)
     }
-    
+}
+
+extension SoftwareDetailNewFeatureCell {
     private func setupReleaseDateLabel(date: Date?) {
         guard let date = date else {
             self.releaseDateLabel.text = nil
@@ -92,7 +87,9 @@ extension SoftwareDetailNewFeatureCell {
         self.versionLabel.text = item.version
         self.setupReleaseDateLabel(date: item.releaseDate)
         self.releaseNotesLabel.text = item.releaseNotes
-        self.releaseNotesLabel.numberOfLines = item.isFold ? 3: 0
-        self.moreButtonWrapperView.isHidden = !item.isFold
+        let isMoreText = item.releaseNotes.split(separator: "\n").count > 3
+        let isFold = item.isFold && isMoreText
+        self.releaseNotesLabel.numberOfLines = isFold ? 3: 0
+        self.moreButtonWrapperView.isHidden = !isFold
     }
 }

@@ -68,7 +68,8 @@ final class SoftwareDetailViewController: BaseViewController, StoryboardBased, V
         self.tableView.register(SoftwareDetailHeaderCell.self)
         self.tableView.register(SoftwareDetailNewFeatureCell.self)
         self.tableView.register(SoftwareDetailPreviewCell.self)
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "spacing")
+        self.tableView.register(SoftwareDetailDescriptionCell.self)
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Spacing")
     }
     
     private func setupAction() {
@@ -160,8 +161,13 @@ extension SoftwareDetailViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(SoftwareDetailPreviewCell.self, for: indexPath)
             cell.configure(item: item)
             return cell
-        default:
-            return self.tableView.dequeueReusableCell(withIdentifier: "spacing", for: indexPath)
+        case .description(let item):
+            let cell = tableView.dequeueReusableCell(SoftwareDetailDescriptionCell.self, for: indexPath)
+            cell.configure(item: item)
+            cell.more = { [weak self] in self?.tableView.reloadRows(at: [indexPath], with: .fade) }
+            return cell
+        case .spacing:
+            return self.tableView.dequeueReusableCell(withIdentifier: "Spacing", for: indexPath)
         }
     }
 }

@@ -61,7 +61,7 @@ extension SoftwareDetailViewModel {
         let screenshotItems: [ScreenshotItem]
         var currentIndex: Int
         
-        init(screenshotItems: [ScreenshotItem], currentIndex: Int = 2) {
+        init(screenshotItems: [ScreenshotItem], currentIndex: Int = 0) {
             self.screenshotItems = screenshotItems
             self.currentIndex = currentIndex
         }
