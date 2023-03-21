@@ -19,6 +19,10 @@ struct SoftwareItem {
     let releaseNotes: String
     let userRatingCount: Int
     let averageUserRating: Double
+    let trackContentRating: String
+    let languageCodes: [String]
+    let version: String
+    let releaseDate: Date?
 }
 
 extension SoftwareItem {
@@ -33,7 +37,17 @@ extension SoftwareItem {
                             description: "",
                             releaseNotes: "",
                             userRatingCount: 0,
-                            averageUserRating: 0)
+                            averageUserRating: 0,
+                            trackContentRating: "",
+                            languageCodes: [],
+                            version: "",
+                            releaseDate: nil)
+    }
+    
+    var languageCode: String? {
+        let currentLanguageCode = Locale.preferredLanguages.first ?? ""
+        let matchCode = String(currentLanguageCode.prefix(2)).uppercased()
+        return self.languageCodes.first(where: { $0 == matchCode }) ?? self.languageCodes.first
     }
     
     var screenShotImageHeightMultiPlier: Double {

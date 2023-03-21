@@ -17,6 +17,7 @@ final class MainTabBarViewController: UITabBarController {
         let viewModel = SearchViewModel()
         let viewController = SearchViewController.instantiate(withViewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.navigationBar.prefersLargeTitles = true
         navigationController.tabBarItem.image = UIImage(systemName: "magnifyingglass")
         navigationController.tabBarItem.title = "검색"
         return navigationController

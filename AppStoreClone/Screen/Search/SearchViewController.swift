@@ -24,14 +24,12 @@ final class SearchViewController: BaseViewController, ViewModelBased, Storyboard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNavigation()
         self.setupUI()
         self.bindUI()
     }
     
-    private func setupNavigation() {
+    private func setupNavigationBar() {
         self.title = "검색"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.setupSearchController()
     }
     
@@ -43,6 +41,7 @@ final class SearchViewController: BaseViewController, ViewModelBased, Storyboard
     }
     
     private func setupUI() {
+        self.setupNavigationBar()
         self.tableView.register(LatestSearchKeywordCell.self)
         self.tableView.register(LatestSearchKeywordHeaderView.self)
         self.tableView.dataSource = self

@@ -35,6 +35,10 @@ extension ItunesSearchSoftwareResponseModel {
         let releaseNotes: String
         let userRatingCount: Int
         let averageUserRating: Double
+        let trackContentRating: String
+        let languageCodesISO2A: [String]
+        let version: String
+        let releaseDate: String
     }
 }
 
@@ -51,6 +55,10 @@ extension ItunesSearchSoftwareResponseModel.Item: Decodable {
         case releaseNotes
         case userRatingCount
         case averageUserRating
+        case trackContentRating
+        case languageCodesISO2A
+        case version
+        case releaseDate
     }
     
     init(from decoder: Decoder) throws {
@@ -66,5 +74,9 @@ extension ItunesSearchSoftwareResponseModel.Item: Decodable {
         self.releaseNotes = (try? container.decode(String.self, forKey: .releaseNotes)) ?? ""
         self.userRatingCount = (try? container.decode(Int.self, forKey: .userRatingCount)) ?? 0
         self.averageUserRating = (try? container.decode(Double.self, forKey: .averageUserRating)) ?? 0
+        self.trackContentRating = (try? container.decode(String.self, forKey: .trackContentRating)) ?? ""
+        self.languageCodesISO2A = (try? container.decode([String].self, forKey: .languageCodesISO2A)) ?? []
+        self.version = (try? container.decode(String.self, forKey: .version)) ?? ""
+        self.releaseDate = (try? container.decode(String.self, forKey: .releaseDate)) ?? ""
     }
 }

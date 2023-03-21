@@ -136,7 +136,11 @@ extension SearchResultViewModel {
                                         description: item.description,
                                         releaseNotes: item.releaseNotes,
                                         userRatingCount: item.userRatingCount,
-                                        averageUserRating: item.averageUserRating)
+                                        averageUserRating: item.averageUserRating,
+                                        trackContentRating: item.trackContentRating,
+                                        languageCodes: item.languageCodesISO2A,
+                                        version: item.version,
+                                        releaseDate: item.releaseDate.toDate(format: "yyyy-MM-dd'T'HH:mm:ss.SSS"))
                 }
                 return newItems
             }
