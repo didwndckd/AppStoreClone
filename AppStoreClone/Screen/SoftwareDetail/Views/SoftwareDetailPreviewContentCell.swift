@@ -19,6 +19,7 @@ final class SoftwareDetailPreviewContentCell: UICollectionViewCell, ReusableView
     private func setupUI() {
         self.imageView.layer.cornerRadius = 8
         self.imageView.layer.borderColor = UIColor.lightGray.cgColor
+        self.imageView.layer.borderWidth = 0.5
     }
     
     func configure(url: URL?) {
