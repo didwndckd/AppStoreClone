@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import AppStoreClone
+import RxSwift
 
 final class AppStoreCloneTests: XCTestCase {
 
@@ -21,6 +22,8 @@ final class AppStoreCloneTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         // 여기에 분해 코드를 입력합니다. 이 메서드는 클래스의 각 테스트 메서드 호출 후에 호출됩니다.
     }
+    
+    private let disposeBag = DisposeBag()
 
     func testExample() throws {
         print(#function)

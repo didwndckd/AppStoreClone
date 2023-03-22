@@ -11,12 +11,14 @@ import RxCocoa
 
 final class SearchViewModel: BaseViewModel, ViewModel {
     private let disposeBag = DisposeBag()
+    private let latestKeywordStorage: LatestSearchKeywordStorable
     private let searchKeyword = BehaviorRelay(value: "")
     private let search = PublishRelay<Void>()
     private let latestKeywordList = BehaviorRelay<[String]>(value: [])
     private let moveTo = PublishRelay<MoveTo?>()
     
-    override init() {
+    init(latestKeywordStorage: LatestSearchKeywordStorable = LatestSearchKeywordStorage()) {
+        self.latestKeywordStorage = latestKeywordStorage
         super.init()
         self.bind()
     }
@@ -24,7 +26,7 @@ final class SearchViewModel: BaseViewModel, ViewModel {
 
 extension SearchViewModel {
     private func bind() {
-        LatestSearchKeywordStorage.shared.keywordListObservable
+        self.latestKeywordStorage.keywordListObservable
             .bind(to: self.latestKeywordList)
             .disposed(by: self.disposeBag)
     }

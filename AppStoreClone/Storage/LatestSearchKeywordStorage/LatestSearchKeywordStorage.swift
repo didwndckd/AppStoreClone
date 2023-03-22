@@ -12,7 +12,7 @@ import RxRelay
 
 final class LatestSearchKeywordStorage {
     static let shared = LatestSearchKeywordStorage()
-    private init() {
+    init() {
         self.fetchItems()
     }
     
@@ -57,7 +57,7 @@ extension LatestSearchKeywordStorage {
 }
 
 // MARK: Interface
-extension LatestSearchKeywordStorage {
+extension LatestSearchKeywordStorage: LatestSearchKeywordStorable {
     var keywordListObservable: Observable<[String]> {
         return self.items
             .map { items -> [LatestSearchKeywordStoreItem] in
