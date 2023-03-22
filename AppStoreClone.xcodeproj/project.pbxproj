@@ -98,6 +98,8 @@
 		31D4C6C229C81B89009E9207 /* LoadingTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4C6C129C81B89009E9207 /* LoadingTracker.swift */; };
 		31D4C6C529C81DD7009E9207 /* SoftwareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4C6C329C81DD7009E9207 /* SoftwareCell.swift */; };
 		31D4C6C629C81DD7009E9207 /* SoftwareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D4C6C429C81DD7009E9207 /* SoftwareCell.xib */; };
+		31EB0CDC29CAE3F100301C50 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 31EB0CDB29CAE3F100301C50 /* Realm */; };
+		31EB0CDE29CAE41600301C50 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 31EB0CDD29CAE41600301C50 /* RxCocoa */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +229,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31EB0CDE29CAE41600301C50 /* RxCocoa in Frameworks */,
+				31EB0CDC29CAE3F100301C50 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +251,7 @@
 				3140619729C591C50099F6F8 /* AppStoreCloneTests */,
 				314061A129C591C50099F6F8 /* AppStoreCloneUITests */,
 				3140617F29C591C30099F6F8 /* Products */,
+				31EB0CDA29CAE3F100301C50 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -532,6 +537,13 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		31EB0CDA29CAE3F100301C50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -577,6 +589,10 @@
 				3140619629C591C50099F6F8 /* PBXTargetDependency */,
 			);
 			name = AppStoreCloneTests;
+			packageProductDependencies = (
+				31EB0CDB29CAE3F100301C50 /* Realm */,
+				31EB0CDD29CAE41600301C50 /* RxCocoa */,
+			);
 			productName = AppStoreCloneTests;
 			productReference = 3140619429C591C50099F6F8 /* AppStoreCloneTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1189,6 +1205,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3194F11429C5ACA30055AA7D /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		31EB0CDB29CAE3F100301C50 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 315E1EF629C6D94900C51259 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		31EB0CDD29CAE41600301C50 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3194F10A29C5ABDE0055AA7D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
