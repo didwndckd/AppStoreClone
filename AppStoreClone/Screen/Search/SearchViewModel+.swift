@@ -17,7 +17,7 @@ extension SearchViewModel {
     }
     
     struct Output {
-        let reload: Driver<Void>
+        let reload: Driver<[String]>
         let searchKeyword: Driver<String>
         let isSearchMode: Driver<Bool>
         let moveTo: Driver<MoveTo>

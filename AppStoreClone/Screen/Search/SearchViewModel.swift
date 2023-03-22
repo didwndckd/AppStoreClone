@@ -12,15 +12,36 @@ import RxCocoa
 final class SearchViewModel: BaseViewModel, ViewModel {
     private let disposeBag = DisposeBag()
     private let latestKeywordStorage: LatestSearchKeywordStorable
-    private let searchKeyword = BehaviorRelay(value: "")
-    private let search = PublishRelay<Void>()
+    let searchResultViewModel: SearchResultViewModel
+    
+    private let searchKeyword: BehaviorRelay<String>
+    private let search: PublishRelay<Void>
     private let latestKeywordList = BehaviorRelay<[String]>(value: [])
     private let moveTo = PublishRelay<MoveTo?>()
     
     init(latestKeywordStorage: LatestSearchKeywordStorable = LatestSearchKeywordStorage()) {
         self.latestKeywordStorage = latestKeywordStorage
+        let searchKeyword = BehaviorRelay(value: "")
+        let search = PublishRelay<Void>()
+        let parameter = SearchResultViewModel.Parameter(searchKeyword: searchKeyword.asObservable(), search: search.asObservable())
+        self.searchKeyword = searchKeyword
+        self.search = search
+        self.searchResultViewModel = SearchResultViewModel(parameter: parameter, latestKeywordStorage: latestKeywordStorage)
+        
         super.init()
+        self.setupSearchResultViewModel()
         self.bind()
+    }
+    
+    private func setupSearchResultViewModel() {
+        self.searchResultViewModel.selectedRecommendKeyword = { [weak self] keyword in
+            self?.searchKeyword.accept(keyword)
+            self?.search.accept(())
+        }
+        
+        self.searchResultViewModel.selectedSoftwareItem = { [weak self] item in
+            self?.moveTo.accept(.softwareDetail(item))
+        }
     }
 }
 
@@ -54,7 +75,7 @@ extension SearchViewModel {
             })
             .disposed(by: self.disposeBag)
         
-        return Output(reload: self.latestKeywordList.asDriver().map { _ in () },
+        return Output(reload: self.latestKeywordList.asDriver(),
                       searchKeyword: self.searchKeyword.asDriver(),
                       isSearchMode: self.searchKeyword.asDriver().map { !$0.isEmpty }.distinctUntilChanged(),
                       moveTo: self.moveTo.asDriver(onErrorJustReturn: nil).compactMap { $0 })
@@ -68,22 +89,5 @@ extension SearchViewModel {
     
     func latestKeyword(index: Int) -> String {
         return self.latestKeywordList.value.safety(index: index) ?? ""
-    }
-    
-    var searchResultViewModel: SearchResultViewModel {
-        let parameter = SearchResultViewModel.Parameter(searchKeyword: self.searchKeyword.asObservable(),
-                                                        search: self.search.asObservable())
-        
-        let viewModel = SearchResultViewModel(parameter: parameter)
-        
-        viewModel.selectedRecommendKeyword = { [weak self] keyword in
-            self?.searchKeyword.accept(keyword)
-            self?.search.accept(())
-        }
-        
-        viewModel.selectedSoftwareItem = { [weak self] item in
-            self?.moveTo.accept(.softwareDetail(item))
-        }
-        return viewModel
     }
 }

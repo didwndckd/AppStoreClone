@@ -14,7 +14,6 @@ final class LatestSearchKeywordStorageStub: LatestSearchKeywordStorable {
     private let keywordList: BehaviorRelay<[String]>
     
     init(defaultKeywordList: [String]) {
-        
         self.keywordList = .init(value: defaultKeywordList)
     }
     

@@ -58,7 +58,7 @@ extension SearchViewController {
         
         let output = self.viewModel.transform(input: input)
         output.reload
-            .drive(onNext: { [weak self] in
+            .drive(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
             })
             .disposed(by: self.disposeBag)

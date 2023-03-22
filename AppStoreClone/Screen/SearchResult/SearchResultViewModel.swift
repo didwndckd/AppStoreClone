@@ -23,10 +23,12 @@ final class SearchResultViewModel: BaseViewModel, ViewModel {
     private let recommendKeywordList = BehaviorRelay<[String]>(value: [])
     private let softwareItems = BehaviorRelay<[SoftwareItem]>(value: [])
     private let mode = BehaviorRelay(value: Mode.recommendKeyword)
+    private let latestKeywordStorage: LatestSearchKeywordStorable
     
-    init(parameter: Parameter) {
+    init(parameter: Parameter, latestKeywordStorage: LatestSearchKeywordStorable) {
         self.searchKeyword = parameter.searchKeyword
         self.search = parameter.search
+        self.latestKeywordStorage = latestKeywordStorage
         super.init()
         self.bind()
     }
@@ -34,7 +36,7 @@ final class SearchResultViewModel: BaseViewModel, ViewModel {
 
 extension SearchResultViewModel {
     private func bind() {
-        Observable.combineLatest(self.searchKeyword, LatestSearchKeywordStorage.shared.keywordListObservable)
+        Observable.combineLatest(self.searchKeyword, self.latestKeywordStorage.keywordListObservable)
             .map { keyword, list in
                 return list.filter { $0.contains(keyword) }
             }
@@ -159,9 +161,8 @@ extension SearchResultViewModel {
     
     private func fetchSoftwareItems(keyword: String) {
         self.searchDisposeBag = DisposeBag()
-        
         self.softwareItems.accept([])
-        LatestSearchKeywordStorage.shared.storeKeyword(keyword)
+        self.latestKeywordStorage.storeKeyword(keyword)
         
         self.softwareItemsRequest(keyword: keyword, offset: 0)
             .delay(.milliseconds(100), scheduler: MainScheduler.instance)

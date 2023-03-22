@@ -11,13 +11,11 @@ import RxSwift
 import RxRelay
 
 final class LatestSearchKeywordStorage {
-    static let shared = LatestSearchKeywordStorage()
+    private let realm = try? Realm(configuration: Realm.Configuration(schemaVersion: Constants.Realm.schemaVersion))
+    private let items = BehaviorRelay<Results<LatestSearchKeywordStoreItem>?>(value: nil)
     init() {
         self.fetchItems()
     }
-    
-    private let realm = try? Realm(configuration: Realm.Configuration(schemaVersion: Constants.Realm.schemaVersion))
-    private let items = BehaviorRelay<Results<LatestSearchKeywordStoreItem>?>(value: nil)
 }
 
 extension LatestSearchKeywordStorage {
