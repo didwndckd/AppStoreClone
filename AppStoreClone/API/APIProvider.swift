@@ -10,10 +10,6 @@ import RxSwift
 import Moya
 
 final class APIProvider<T: APITargetType>: MoyaProvider<T> {
-    init(plugins: [PluginType]) {
-        super.init(plugins: plugins)
-    }
-    
     func request(target: T, callbackQueue: DispatchQueue? = nil, progress: ProgressBlock?) -> Single<Response> {
         return Single.create { single in
             let request = self.request(target, callbackQueue: callbackQueue, progress: progress) { result in

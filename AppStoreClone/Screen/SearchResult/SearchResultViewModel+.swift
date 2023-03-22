@@ -23,8 +23,8 @@ extension SearchResultViewModel {
     struct Output {
         let searchLoading: Driver<Bool>
         let nextPageLoading: Driver<Bool>
-        let reloadRecommendKeywordList: Driver<Void>
-        let reloadSoftwareItems: Driver<Void>
+        let reloadRecommendKeywordList: Driver<[String]>
+        let reloadSoftwareItems: Driver<[SoftwareItem]>
         let mode: Driver<Mode>
     }
     

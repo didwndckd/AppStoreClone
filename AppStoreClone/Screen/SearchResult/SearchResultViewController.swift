@@ -72,13 +72,13 @@ extension SearchResultViewController {
             .disposed(by: self.disposeBag)
         
         output.reloadRecommendKeywordList
-            .drive(onNext: { [weak self] in
+            .drive(onNext: { [weak self] _ in
                 self?.recommendKeywordTabelView.reloadData()
             })
             .disposed(by: self.disposeBag)
         
         output.reloadSoftwareItems
-            .drive(onNext: { [weak self] in
+            .drive(onNext: { [weak self] _ in
                 self?.searchResultTabelView.reloadData()
             })
             .disposed(by: self.disposeBag)

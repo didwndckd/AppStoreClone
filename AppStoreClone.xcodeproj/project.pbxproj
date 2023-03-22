@@ -109,6 +109,9 @@
 		31EB0D5A29CB12FB00301C50 /* RxNimble in Frameworks */ = {isa = PBXBuildFile; productRef = 31EB0D5929CB12FB00301C50 /* RxNimble */; };
 		31EB0D5C29CB137300301C50 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EB0D5B29CB137300301C50 /* Operators.swift */; };
 		31EB0D6129CB146B00301C50 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 31EB0D6029CB146B00301C50 /* Nimble */; };
+		31EB0D6529CB28CE00301C50 /* SearchResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EB0D6429CB28CE00301C50 /* SearchResultTests.swift */; };
+		31EB0D6729CB295400301C50 /* APIServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EB0D6629CB295400301C50 /* APIServiceable.swift */; };
+		31EB0D6929CB2B8600301C50 /* APIServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EB0D6829CB2B8600301C50 /* APIServiceStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +236,9 @@
 		31EB0D4E29CB0E3A00301C50 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		31EB0D5229CB0F5400301C50 /* SearchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTests.swift; sourceTree = "<group>"; };
 		31EB0D5B29CB137300301C50 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		31EB0D6429CB28CE00301C50 /* SearchResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTests.swift; sourceTree = "<group>"; };
+		31EB0D6629CB295400301C50 /* APIServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceable.swift; sourceTree = "<group>"; };
+		31EB0D6829CB2B8600301C50 /* APIServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +328,7 @@
 			children = (
 				3140619829C591C50099F6F8 /* AppStoreCloneTests.swift */,
 				31EB0D5229CB0F5400301C50 /* SearchTests.swift */,
+				31EB0D6429CB28CE00301C50 /* SearchResultTests.swift */,
 				31EB0D5B29CB137300301C50 /* Operators.swift */,
 			);
 			path = AppStoreCloneTests;
@@ -476,11 +483,13 @@
 		3194F10129C5AA050055AA7D /* API */ = {
 			isa = PBXGroup;
 			children = (
-				3194F11129C5ABFE0055AA7D /* Target */,
-				3194F11B29C5AE0E0055AA7D /* APIProvider.swift */,
+				31EB0D6629CB295400301C50 /* APIServiceable.swift */,
 				3194F11D29C5B9290055AA7D /* APIService.swift */,
+				31EB0D6829CB2B8600301C50 /* APIServiceStub.swift */,
+				3194F11B29C5AE0E0055AA7D /* APIProvider.swift */,
 				3194F11F29C5B9AA0055AA7D /* APIError.swift */,
 				31D4C6BA29C73DF0009E9207 /* APILogPlugin.swift */,
+				3194F11129C5ABFE0055AA7D /* Target */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -780,6 +789,7 @@
 				316A450629C9F589005ADAF2 /* ScreenshotItem.swift in Sources */,
 				315FDA4829C5E0F10049B3A7 /* LatestSearchKeywordCell.swift in Sources */,
 				3194F12729C5C6500055AA7D /* SearchViewModel.swift in Sources */,
+				31EB0D6729CB295400301C50 /* APIServiceable.swift in Sources */,
 				31EB0CE029CAF75900301C50 /* LatestSearchKeywordStorable.swift in Sources */,
 				315E1F0929C6E19300C51259 /* LatestSearchKeywordStoreItem.swift in Sources */,
 				315E1F0229C6DC3B00C51259 /* Constants.swift in Sources */,
@@ -808,6 +818,7 @@
 				3194F11329C5AC110055AA7D /* APITarget.swift in Sources */,
 				315E1F0429C6DC5300C51259 /* Constants.Realm+.swift in Sources */,
 				31D4C6C529C81DD7009E9207 /* SoftwareCell.swift in Sources */,
+				31EB0D6929CB2B8600301C50 /* APIServiceStub.swift in Sources */,
 				3194F12D29C5C6EE0055AA7D /* BaseViewController.swift in Sources */,
 				3194F11C29C5AE0E0055AA7D /* APIProvider.swift in Sources */,
 				316A44FC29C9E279005ADAF2 /* BaseViewModel.swift in Sources */,
@@ -828,6 +839,7 @@
 			files = (
 				3140619929C591C50099F6F8 /* AppStoreCloneTests.swift in Sources */,
 				31EB0D5329CB0F5400301C50 /* SearchTests.swift in Sources */,
+				31EB0D6529CB28CE00301C50 /* SearchResultTests.swift in Sources */,
 				31EB0D5C29CB137300301C50 /* Operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

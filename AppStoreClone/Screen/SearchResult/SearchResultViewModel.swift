@@ -24,11 +24,13 @@ final class SearchResultViewModel: BaseViewModel, ViewModel {
     private let softwareItems = BehaviorRelay<[SoftwareItem]>(value: [])
     private let mode = BehaviorRelay(value: Mode.recommendKeyword)
     private let latestKeywordStorage: LatestSearchKeywordStorable
+    private let apiService: APIServiceable
     
-    init(parameter: Parameter, latestKeywordStorage: LatestSearchKeywordStorable) {
+    init(parameter: Parameter, latestKeywordStorage: LatestSearchKeywordStorable, apiService: APIServiceable = APIService()) {
         self.searchKeyword = parameter.searchKeyword
         self.search = parameter.search
         self.latestKeywordStorage = latestKeywordStorage
+        self.apiService = apiService
         super.init()
         self.bind()
     }
@@ -40,6 +42,7 @@ extension SearchResultViewModel {
             .map { keyword, list in
                 return list.filter { $0.contains(keyword) }
             }
+            .distinctUntilChanged()
             .bind(to: self.recommendKeywordList)
             .disposed(by: self.disposeBag)
         
@@ -113,15 +116,15 @@ extension SearchResultViewModel {
         
         return Output(searchLoading: searchLoading.asDriver(onErrorJustReturn: false),
                       nextPageLoading: self.nextPageLoading.asDriver(),
-                      reloadRecommendKeywordList: self.recommendKeywordList.asDriver().map { _ in () },
-                      reloadSoftwareItems: self.softwareItems.asDriver().map { _ in () },
+                      reloadRecommendKeywordList: self.recommendKeywordList.asDriver(),
+                      reloadSoftwareItems: self.softwareItems.asDriver(),
                       mode: self.mode.asDriver())
     }
 }
 
 // MARK: API
 extension SearchResultViewModel {
-    private func softwareItemsRequest(keyword: String, offset: Int) -> Observable<[SoftwareItem]> {
+    func softwareItemsRequest(keyword: String, offset: Int) -> Observable<[SoftwareItem]> {
         let country = (Locale.current as NSLocale).countryCode ?? ""
         let lang = Locale.preferredLanguages.first ?? ""
         let term = keyword.replacingOccurrences(of: " ", with: "+")
@@ -133,7 +136,7 @@ extension SearchResultViewModel {
                                              offset: offset,
                                              limit: 20)
         
-        return APIService.request(target, parsingType: ItunesSearchSoftwareResponseModel.self)
+        return self.apiService.request(target, parsingType: ItunesSearchSoftwareResponseModel.self)
             .asObservable()
             .map { response in
                 let dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
@@ -163,7 +166,6 @@ extension SearchResultViewModel {
         self.searchDisposeBag = DisposeBag()
         self.softwareItems.accept([])
         self.latestKeywordStorage.storeKeyword(keyword)
-        
         self.softwareItemsRequest(keyword: keyword, offset: 0)
             .delay(.milliseconds(100), scheduler: MainScheduler.instance)
             .trackLoading(self.searchLoading)

@@ -9,12 +9,12 @@ import Foundation
 import RxSwift
 import Moya
 
-enum APIService {
-    static func request<T: APITargetType, P: Decodable>(_ target: T,
-                                                        pluginds: [PluginType] = [],
-                                                        callbackQueue: DispatchQueue = .main,
-                                                        progress: ((Double) -> Void)? = nil,
-                                                        parsingType: P.Type) -> Single<P> {
+final class APIService: APIServiceable {
+    func request<T: APITargetType, P: Decodable>(_ target: T,
+                                                 pluginds: [PluginType],
+                                                 callbackQueue: DispatchQueue,
+                                                 progress: ((Double) -> Void)?,
+                                                 parsingType: P.Type) -> Single<P> {
         return APIProvider<T>(plugins: pluginds).request(target: target, callbackQueue: callbackQueue, progress: { progress?($0.progress) })
             .flatMap { response -> Single<P> in
                 do {

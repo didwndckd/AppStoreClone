@@ -69,7 +69,6 @@ extension SearchViewController {
         
         output.isSearchMode
             .filter { $0 }
-            .do(onNext: { print($0) })
             .drive(self.searchController.rx.isActive)
             .disposed(by: self.disposeBag)
         
